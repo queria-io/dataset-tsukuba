@@ -172,7 +172,7 @@ requires-dist = [
     { name = "dbt-core", specifier = ">=1.11.2" },
     { name = "dbt-duckdb", specifier = ">=1.10.0" },
     { name = "normalize-japanese-addresses", marker = "extra == 'convert'" },
-    { name = "queria", specifier = ">=0.13.0" },
+    { name = "queria", specifier = ">=0.22.0" },
 ]
 provides-extras = ["convert"]
 
@@ -777,16 +777,16 @@ wheels = [
 
 [[package]]
 name = "queria"
-version = "0.21.0"
+version = "0.23.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "duckdb" },
     { name = "jsonschema" },
     { name = "pyyaml" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/9b/ac/c34e2507f7181f58996ff5269cb84bc4582d3c80cc3911b28f5114eda64c/queria-0.21.0.tar.gz", hash = "sha256:1129eb40a27da505233a370144347a92becbca18998ed1c67b44f18c82848d3c", size = 294854, upload-time = "2026-08-03T02:17:07.061Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/5a/34/ad8e075e2f1c22fafdbda2ddd85f8620a95df54d517a397f21c7ea08a9b6/queria-0.23.0.tar.gz", hash = "sha256:97acf4a9976eb620b118b8c471ce1bdbb21a3d653f86622392735944d9702265", size = 315952, upload-time = "2026-09-01T02:12:55.217Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/50/fd/3a7968171d0fc974b07770bb7ab7ef27ebfb264565c8b80a6cd5c4ee7fa9/queria-0.21.0-py3-none-any.whl", hash = "sha256:8a978721897c00f2eaba106410ffc207a36c68f1925cc60bb735ad386895239f", size = 110789, upload-time = "2026-08-03T02:17:05.351Z" },
+    { url = "https://files.pythonhosted.org/packages/6e/84/79c3e8095be63eaf6622342dd88c644ec19cb48d0f7a5c45df42ebac9d50/queria-0.23.0-py3-none-any.whl", hash = "sha256:271bdec151901c8bd03f8e2d3c02a43143dfda10b808136c2d33039e2bfaca45", size = 120169, upload-time = "2026-09-01T02:12:53.567Z" },
 ]
 
 [[package]]
