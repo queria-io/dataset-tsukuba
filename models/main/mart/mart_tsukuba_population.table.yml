@@ -12,6 +12,7 @@ sources:
 fields:
   - name: lg_code
     title: 全国地方公共団体コード
+    semantic: { role: entity, name: city }
   - name: area_code
     title: 地域を識別するコード
   - name: lg_name

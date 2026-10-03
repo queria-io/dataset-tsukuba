@@ -13,6 +13,7 @@ sources:
 fields:
   - name: lg_code
     title: 全国地方公共団体コード
+    semantic: { role: entity, name: city }
   - name: shelter_id
     title: 避難場所ID
   - name: name
@@ -51,6 +52,7 @@ fields:
     title: 連絡先備考
   - name: postal_code
     title: 郵便番号
+    semantic: { role: entity, name: postal_code }
   - name: lg_name
     title: 地方公共団体名
   - name: flood
