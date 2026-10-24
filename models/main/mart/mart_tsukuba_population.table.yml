@@ -7,6 +7,7 @@ keywords:
   - つくば市
   - 統計
 published: true
+themes: [population]
 sources:
   - path: https://www.city.tsukuba.lg.jp/
 fields:

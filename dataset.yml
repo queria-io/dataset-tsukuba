@@ -9,6 +9,7 @@ keywords:
   - 避難場所
 homepage: https://github.com/queria-io/dataset-tsukuba
 language: ja
+themes: [justice_safety_environment, population]
 
 licenses:
   - CC-BY-4.0
