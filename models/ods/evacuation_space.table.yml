@@ -1,0 +1,54 @@
+schema: ods
+name: evacuation_space
+title: つくば市 指定緊急避難場所一覧（標準形式）
+description: つくば市の指定緊急避難場所を、デジタル庁「自治体標準オープンデータセット」の指定緊急避難場所一覧の定義書どおりの列名・並び・書き方で並べたもの。CSV や Excel でダウンロードすれば、そのまま標準形式のファイルとして使える。中身は main.mart_tsukuba_emergency_shelter と同じ 11 件で、SQL や地図で使うときは英語の列名のそちらが扱いやすい。災害種別の列は定義書の書き方のまま文字列で持ち、市が公表していない区分は空欄にしている。
+keywords:
+  - 自治体標準オープンデータセット
+  - 指定緊急避難場所
+  - 防災
+  - つくば市
+published: true
+themes: [justice_safety_environment]
+sources:
+  - path: https://www.city.tsukuba.lg.jp/soshikikarasagasu/shichokoshitsukikikanrika/gyomuannai/1/2/1000608.html
+  - path: https://www.city.tsukuba.lg.jp/material/files/group/4/202412hinannbasyo.csv
+fields:
+  - name: 全国地方公共団体コード
+  - name: ID
+  - name: 名称
+  - name: 名称_カナ
+  - name: 名称_英字
+  - name: 所在地_全国地方公共団体コード
+  - name: 町字ID
+  - name: 所在地_連結表記
+  - name: 所在地_都道府県
+  - name: 所在地_市区町村
+  - name: 所在地_町字
+  - name: 所在地_番地以下
+  - name: 建物名等(方書)
+  - name: 緯度
+  - name: 経度
+  - name: 標高
+  - name: 電話番号
+  - name: 内線番号
+  - name: 連絡先メールアドレス
+  - name: 連絡先FormURL
+  - name: 連絡先備考（その他、SNSなど）
+  - name: 郵便番号
+  - name: 市区町村コード
+  - name: 地方公共団体名
+  - name: 災害種別_洪水
+  - name: 災害種別_崖崩れ、土石流及び地滑り
+  - name: 災害種別_高潮
+  - name: 災害種別_地震
+  - name: 災害種別_津波
+  - name: 災害種別_大規模な火事
+  - name: 災害種別_内水氾濫
+  - name: 災害種別_火山現象
+  - name: 指定避難所との重複
+  - name: 想定収容人数
+  - name: 対象となる町会・自治会
+  - name: URL
+  - name: 画像
+  - name: 画像_ライセンス
+  - name: 備考
