@@ -10,10 +10,12 @@ CASE
 END
 {%- endmacro %}
 
-{# 緯度経度は日本の範囲（緯度 20〜46、経度 122〜154.5）に入るときだけ採る。
-   part は 'lat' か 'lon' #}
+{# 緯度経度が日本の範囲（緯度 20〜46、経度 122〜154.5）に入るか #}
+{% macro tsukuba_in_japan(lat, lon) -%}
+(TRY_CAST({{ lat }} AS DOUBLE) BETWEEN 20.0 AND 46.0 AND TRY_CAST({{ lon }} AS DOUBLE) BETWEEN 122.0 AND 154.5)
+{%- endmacro %}
+
+{# 日本の範囲に入るときだけ緯度（part='lat'）か経度（part='lon'）を返す #}
 {% macro tsukuba_coordinate(lat, lon, part) -%}
-CASE WHEN TRY_CAST({{ lat }} AS DOUBLE) BETWEEN 20.0 AND 46.0
-      AND TRY_CAST({{ lon }} AS DOUBLE) BETWEEN 122.0 AND 154.5
-     THEN TRY_CAST({{ lat if part == 'lat' else lon }} AS DOUBLE) END
+CASE WHEN {{ tsukuba_in_japan(lat, lon) }} THEN TRY_CAST({{ lat if part == 'lat' else lon }} AS DOUBLE) END
 {%- endmacro %}

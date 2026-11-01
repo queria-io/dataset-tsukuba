@@ -30,6 +30,9 @@ BICYCLE_PARKING = "j008_001"
 PARKING = "j009_001"
 OPEN_DATA_LIST = "m009_001"
 
+# 消防水利の CSV は防火水槽と消火栓の 2 本
+FIRE_HYDRANT_CSVS = 2
+
 # 投票所一覧は地区ごとにシートが分かれている。このヘッダーで始まるシートだけを読む
 # （同じブックに行政区と学区の対応表のシートが同居している）
 POLLING_PLACE_HEADER = ["№", "投票区番号", "投票区", "投票所", "投票所住所", "対象地区"]
@@ -44,11 +47,15 @@ def download_public_wireless_lan(dest: str) -> Path:
 
 
 def download_fire_hydrant(dest: str) -> list[Path]:
-    # 防火水槽と消火栓が別の CSV で載っている。種別は各 CSV の列が持つ
+    # 防火水槽と消火栓が別の CSV で載っている。種別は各 CSV の列が持つ。
+    # 時点の違う CSV が足されると、raw は glob で読むので同じ水利が二重に入る。
+    # 支援系水利番号は元から重複があり一意性のテストで拾えないので、本数で止める
     _clear_csv(Path(dest))
     resources = package_resources(FIRE_HYDRANT, "CSV")
-    if not resources:
-        raise SystemExit("fire_hydrant: CSV が 1 件も無い。上流の構成が変わった")
+    if len(resources) != FIRE_HYDRANT_CSVS:
+        raise SystemExit(
+            f"fire_hydrant: CSV が {len(resources)} 件ある ({FIRE_HYDRANT_CSVS} 件のはず)。上流の構成が変わった"
+        )
     return download(resources, Path(dest), normalize_encoding=True)
 
 
