@@ -8,7 +8,7 @@ models:
       contract:
         enforced: true
     columns:
-      - name: municipality_code
+      - name: local_government_code
         data_type: VARCHAR
         constraints:
           - type: not_null
@@ -20,9 +20,9 @@ models:
         data_type: VARCHAR
         constraints:
           - type: not_null
-      - name: lat
+      - name: latitude
         data_type: DOUBLE
-      - name: lon
+      - name: longitude
         data_type: DOUBLE
       - name: diameter
         data_type: INTEGER

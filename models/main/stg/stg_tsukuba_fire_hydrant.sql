@@ -17,11 +17,11 @@ located AS (
     FROM source
 )
 SELECT
-    '082201'                                          AS municipality_code,
+    '082201'                                          AS local_government_code,
     "支援系水利番号"                                  AS facility_id,
     "種別"                                            AS facility_type,
-    CASE WHEN in_japan THEN lat_raw END               AS lat,
-    CASE WHEN in_japan THEN lon_raw END               AS lon,
+    CASE WHEN in_japan THEN lat_raw END               AS latitude,
+    CASE WHEN in_japan THEN lon_raw END               AS longitude,
     TRY_CAST(REPLACE("管径", ',', '') AS INTEGER)     AS diameter,
     TRY_CAST(REPLACE("容量", ',', '') AS DOUBLE)      AS capacity,
     NULLIF("管轄署所", '')                           AS fire_station,

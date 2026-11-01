@@ -11,7 +11,7 @@ themes: [government_finance]
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/m027_001
 fields:
-  - name: municipality_code
+  - name: local_government_code
     title: 全国地方公共団体コード
     semantic: { role: entity, name: city }
   - name: voting_district_number
@@ -20,7 +20,7 @@ fields:
   - name: name
     title: 名称
     description: 投票所の名称
-  - name: address
+  - name: full_address
     title: 所在地
     description: 元データは市内の番地だけなので、「茨城県つくば市」を前に付けている
   - name: prefecture

@@ -5,7 +5,7 @@
    ID には投票区番号を使う。市の一覧に無い項目（カナ・英字・緯度経度・連絡先など）は空欄。
    対象地区は定義書に列が無いので出さない #}
 SELECT
-    municipality_code                                 AS "全国地方公共団体コード",
+    local_government_code                                 AS "全国地方公共団体コード",
     voting_district_number                            AS "ID",
     '茨城県つくば市'                                  AS "地方公共団体名",
     name                                              AS "名称",
@@ -15,7 +15,7 @@ SELECT
     CAST(NULL AS VARCHAR)                             AS "概要",
     CAST(NULL AS VARCHAR)                             AS "説明",
     CAST(NULL AS VARCHAR)                             AS "町字ID",
-    address                                           AS "連結表記",
+    full_address                                           AS "連結表記",
     prefecture                                        AS "都道府県",
     city                                              AS "市区町村",
     CAST(NULL AS VARCHAR)                             AS "町字",
