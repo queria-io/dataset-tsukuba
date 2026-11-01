@@ -1,0 +1,45 @@
+schema: ods
+name: polling_place
+title: つくば市 投票所一覧（標準形式）
+description: つくば市の投票所を、デジタル庁「自治体標準オープンデータセット」の投票所一覧（データ項目定義書 C）の列名・並びで並べたもの。CSV や Excel でダウンロードすれば、そのまま標準形式のファイルとして使える。中身は main.mart_tsukuba_polling_place と同じ行で、SQL で使うときは英語の列名のそちらが扱いやすい。ID は投票区番号。市の一覧に無い項目（緯度経度・カナ・連絡先など）は空欄にしている。
+keywords:
+  - 自治体標準オープンデータセット
+  - 投票所
+  - 選挙
+  - つくば市
+published: true
+themes: [government_finance]
+sources:
+  - path: https://t1070170.dupf.jp/ckan/dataset/m027_001
+fields:
+  - name: 全国地方公共団体コード
+  - name: ID
+  - name: 地方公共団体名
+  - name: 名称
+  - name: 名称_カナ
+  - name: 名称_英字
+  - name: 施設通称
+  - name: 概要
+  - name: 説明
+  - name: 町字ID
+  - name: 連結表記
+  - name: 都道府県
+  - name: 市区町村
+  - name: 町字
+  - name: 番地以下
+  - name: 建物名等_方書
+  - name: 緯度
+  - name: 経度
+  - name: 座標参照系
+  - name: 座標参照系コード
+  - name: 連絡先名称
+  - name: 連絡先電話番号
+  - name: 連絡先内線番号
+  - name: 連絡先メールアドレス
+  - name: 連絡先FormURL
+  - name: 連絡先備考
+  - name: 郵便番号
+  - name: 投票所区分
+  - name: 投票区名
+  - name: 選挙区分
+  - name: 備考

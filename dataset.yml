@@ -1,15 +1,18 @@
 spec_version: "0.1"
 name: tsukuba
 title: つくば市オープンデータ
-description: つくば市が公開している統計データ。地区別・性別・年齢階級別の人口と、指定緊急避難場所の一覧を収録する
+description: つくば市が公開している統計データ。地区別・性別・年齢階級別の人口と、指定緊急避難場所・公衆無線LANアクセスポイント・消防水利・投票所の一覧を収録する
 keywords:
   - オープンデータ
   - つくば市
   - 人口
   - 避難場所
+  - 公衆無線LAN
+  - 消防水利
+  - 投票所
 homepage: https://github.com/queria-io/dataset-tsukuba
 language: ja
-themes: [justice_safety_environment, population]
+themes: [justice_safety_environment, population, ict_science, government_finance]
 
 licenses:
   - CC-BY-4.0
@@ -46,11 +49,16 @@ ai_context:
     精度は住所レベル）。
     国土地理院の全国データ（gsi）にも同じ施設が入っているが、指定時点も項目も別なので
     件数は一致しない。
-  synonyms: [つくば市, 地区別人口, 避難場所]
+    公衆無線LAN・消防水利・投票所は市のオープンデータカタログの一覧をそのまま整形したもの。
+    緯度経度を持つのは消防水利だけで、公衆無線LANと投票所には座標が無い。
+    消防水利は防火水槽と消火栓を1つの表にまとめ、種別で分けている。住所は無い。
+  synonyms: [つくば市, 地区別人口, 避難場所, Wi-Fi, 消火栓, 防火水槽, 投票所]
   examples:
     - つくば市の地区別の人口を出したい
     - 年齢階級別の人口構成を地区ごとに比べたい
     - つくば市の指定緊急避難場所を地図に出したい
+    - つくば市の消火栓と防火水槽を地図に出したい
+    - つくば市の投票所と投票区の一覧がほしい
 
 schemas:
   - name: main

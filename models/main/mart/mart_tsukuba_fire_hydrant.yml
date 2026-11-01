@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: mart_tsukuba_fire_hydrant
+    description: つくば市が公開する消防水利（防火水槽・消火栓）の一覧。1行が1水利。
+    access: public
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: local_government_code
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+      - name: facility_id
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+      - name: facility_type
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+      - name: latitude
+        data_type: DOUBLE
+      - name: longitude
+        data_type: DOUBLE
+      - name: diameter
+        data_type: INTEGER
+      - name: capacity
+        data_type: DOUBLE
+      - name: fire_station
+        data_type: VARCHAR
+      - name: ownership
+        data_type: VARCHAR

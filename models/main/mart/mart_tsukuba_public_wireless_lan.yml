@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: mart_tsukuba_public_wireless_lan
+    description: つくば市が公開する公衆無線LANアクセスポイント一覧。1行が設置場所と SSID の組。
+    access: public
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: local_government_code
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+      - name: facility_id
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+        data_tests:
+          - unique
+      - name: name
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+      - name: name_kana
+        data_type: VARCHAR
+      - name: name_en
+        data_type: VARCHAR
+      - name: full_address
+        data_type: VARCHAR
+      - name: prefecture
+        data_type: VARCHAR
+      - name: city
+        data_type: VARCHAR
+      - name: building_name
+        data_type: VARCHAR
+      - name: installer
+        data_type: VARCHAR
+      - name: phone_number
+        data_type: VARCHAR
+      - name: phone_ext
+        data_type: VARCHAR
+      - name: ssid
+        data_type: VARCHAR
+      - name: coverage_area
+        data_type: VARCHAR
+      - name: url
+        data_type: VARCHAR
+      - name: notes
+        data_type: VARCHAR

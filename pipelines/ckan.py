@@ -109,6 +109,27 @@ def search_resources(query: str, fmt: str) -> list[Resource]:
     return resources
 
 
+def package_resources(package_id: str, fmt: str) -> list[Resource]:
+    """データセット `package_id` の、`fmt` 形式のリソースをすべて返す。
+
+    検索語では別系統のデータセットが混ざるので、ID が決まっているものは package_show で取る。
+    """
+    url = f"{CKAN_BASE}/api/3/action/package_show?id={quote(package_id)}"
+    pkg = json.loads(_get(url))["result"]
+    resources = [
+        Resource(
+            dataset_title=pkg.get("title", ""),
+            name=res.get("name") or "",
+            fmt=fmt.upper(),
+            url=res["url"],
+        )
+        for res in pkg.get("resources", [])
+        if (res.get("format") or "").upper() == fmt.upper()
+    ]
+    logger.info("ckan: %s に %s が %d 件", package_id, fmt.upper(), len(resources))
+    return resources
+
+
 def download(
     resources: list[Resource], dest: Path, *, normalize_encoding: bool = False
 ) -> list[Path]:

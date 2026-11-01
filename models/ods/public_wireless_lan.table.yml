@@ -1,0 +1,42 @@
+schema: ods
+name: public_wireless_lan
+title: つくば市 公衆無線LANアクセスポイント一覧（標準形式）
+description: つくば市の公衆無線LANアクセスポイントを、デジタル庁「自治体標準オープンデータセット」の公衆無線LANアクセスポイント一覧の定義書どおりの列名・並びで並べたもの。CSV や Excel でダウンロードすれば、そのまま標準形式のファイルとして使える。中身は main.mart_tsukuba_public_wireless_lan と同じ行で、SQL で使うときは英語の列名のそちらが扱いやすい。市の CSV に無い項目（緯度経度・町字・連絡先メールなど）は空欄にしている。
+keywords:
+  - 自治体標準オープンデータセット
+  - 公衆無線LAN
+  - Wi-Fi
+  - つくば市
+published: true
+themes: [ict_science]
+sources:
+  - path: https://t1070170.dupf.jp/ckan/dataset/k006_001
+fields:
+  - name: 全国地方公共団体コード
+  - name: 法人番号
+  - name: ID
+  - name: 地方公共団体名
+  - name: 名称
+  - name: 名称_カナ
+  - name: 名称_英語
+  - name: 所在地_全国地方公共団体コード
+  - name: 町字ID
+  - name: 所在地_連結表記
+  - name: 所在地_都道府県
+  - name: 所在地_市区町村
+  - name: 所在地_町字
+  - name: 所在地_番地以下
+  - name: 建物名等(方書)
+  - name: 緯度
+  - name: 経度
+  - name: 設置者
+  - name: 電話番号
+  - name: 内線番号
+  - name: 連絡先メールアドレス
+  - name: 連絡先FormURL
+  - name: 連絡先備考（その他、SNSなど）
+  - name: 郵便番号
+  - name: SSID
+  - name: 提供エリア
+  - name: URL
+  - name: 備考

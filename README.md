@@ -2,7 +2,7 @@
 
 [つくば市](https://www.city.tsukuba.lg.jp/)が公開しているオープンデータを整備して提供しています。
 
-人口統計は[つくば市オープンデータカタログ](https://t1070170.dupf.jp/ckan/)（CKAN）から、ビルドのたびに全時点を取り直します。上流に新しい時点が増えれば次のビルドで自動的に入るので、モデルを足す作業は要りません。
+人口統計・公衆無線LAN・消防水利・投票所は[つくば市オープンデータカタログ](https://t1070170.dupf.jp/ckan/)（CKAN）から、ビルドのたびに取り直します。人口統計は全時点を取ります。上流に新しい時点が増えれば次のビルドで自動的に入るので、モデルを足す作業は要りません。
 
 上流は CP932 と UTF-8 が混在しています。読み手が単一の encoding を指定できるよう、取得の時点で UTF-8 に揃えています。
 
@@ -65,3 +65,47 @@ uv run python scripts/convert_shelter.py \
 つくば市の指定緊急避難場所を、デジタル庁「自治体標準オープンデータセット」の指定緊急避難場所一覧の定義書どおりの列名（日本語）・並び・書き方で並べたビューです。Queria から CSV や Excel でダウンロードすれば、そのまま標準形式のファイルとして使えます。
 
 中身は `mart_tsukuba_emergency_shelter` と同じ 11 件です。SQL や地図で使うときは、英語の列名を持つそちらが扱いやすいです。
+
+## テーブル: mart_tsukuba_public_wireless_lan / ods.public_wireless_lan
+
+つくば市の公衆無線LANアクセスポイント一覧です（CKAN `k006_001`）。1行が設置場所と SSID の組で、同じ施設に SSID が複数あれば施設は複数行に現れます。元データに緯度経度はありません。
+
+- local_government_code: 全国地方公共団体コード
+- facility_id: ID（市が付けた番号）
+- name / name_kana / name_en: 名称 / カナ / 英語
+- full_address / prefecture / city / building_name: 所在地 / 都道府県 / 市区町村 / 方書
+- installer: 設置者
+- phone_number / phone_ext: 電話番号 / 内線番号
+- ssid / coverage_area: SSID / 提供エリア
+- url / notes: URL / 備考
+
+`ods.public_wireless_lan` は同じ行を、自治体標準オープンデータセットの定義書どおりの列名・並び（28列）で並べたビューです。
+
+## テーブル: mart_tsukuba_fire_hydrant / ods.fire_hydrant
+
+つくば市の消防水利の一覧です（CKAN `n007_001`）。防火水槽と消火栓の CSV 2本を1つの表にまとめ、種別で分けています。住所はありません。
+
+- local_government_code: 全国地方公共団体コード
+- facility_id: ID（支援系水利番号）
+- facility_type: 種別（消火栓 / 防火水槽）
+- latitude / longitude: 緯度 / 経度（日本の範囲に入らない値は NULL）
+- diameter: 口径（消火栓の管径、ミリメートル）
+- capacity: 容量（防火水槽のみ。単位は元データに書かれていない）
+- fire_station / ownership: 管轄署所 / 公私別区分
+
+`ods.fire_hydrant` は同じ行を、定義書どおりの列名・並び（16列）で並べたビューです。容量・管轄署所・公私別区分は定義書に列が無いので含みません。
+
+## テーブル: mart_tsukuba_polling_place / ods.polling_place
+
+つくば市の投票所一覧です（CKAN `m027_001`）。地区別に分かれたシートを1つの表にまとめています。期日前投票所と緯度経度は元データにありません。
+
+- local_government_code: 全国地方公共団体コード
+- voting_district_number: 投票区番号
+- name / full_address: 名称 / 所在地（「茨城県つくば市」を前に付けている）
+- prefecture / city: 都道府県 / 市区町村
+- polling_place_type: 投票所区分（投票所）
+- voting_district: 投票区名
+- target_areas: 対象地区
+- region: 地区（元のシート名）
+
+`ods.polling_place` は同じ行を、自治体標準オープンデータセットのデータ項目定義書 C「投票所一覧」の列名・並び（31列）で並べたビューです。ID には投票区番号を使います。対象地区は定義書に列が無いので含みません。
