@@ -1,0 +1,50 @@
+schema: main
+name: mart_tsukuba_public_wireless_lan
+title: つくば市 公衆無線LANアクセスポイント
+description: つくば市が公開する公衆無線LANアクセスポイント一覧。1行が設置場所と SSID の組で、同じ施設に SSID が複数あれば施設は複数行に現れる。設置者・SSID・提供エリア・施設の URL を持つ。元データに緯度経度は無い。
+keywords:
+  - 公衆無線LAN
+  - Wi-Fi
+  - つくば市
+published: true
+themes: [ict_science]
+sources:
+  - path: https://t1070170.dupf.jp/ckan/dataset/k006_001
+  - path: https://t1070170.dupf.jp/ckan/dataset/397ce7ea-0337-4ddf-a515-55d2faade8cc/resource/a4b63b5f-914a-4bd4-bde9-264053ccc154/download/public_wireless_lan202412.csv
+fields:
+  - name: municipality_code
+    title: 全国地方公共団体コード
+    semantic: { role: entity, name: city }
+  - name: facility_id
+    title: ID
+    description: 市が付けた番号。テーブル内で一意
+  - name: name
+    title: 名称
+    description: 設置場所の名称
+  - name: name_kana
+    title: 名称（カナ）
+  - name: name_en
+    title: 名称（英語）
+  - name: address
+    title: 所在地
+    description: 市が公開した表記のまま。都道府県から書いていない行がある
+  - name: prefecture
+    title: 都道府県
+  - name: city
+    title: 市区町村
+  - name: building_name
+    title: 建物名等（方書）
+  - name: installer
+    title: 設置者
+  - name: phone_number
+    title: 電話番号
+  - name: phone_ext
+    title: 内線番号
+  - name: ssid
+    title: SSID
+  - name: coverage_area
+    title: 提供エリア
+  - name: url
+    title: URL
+  - name: notes
+    title: 備考
