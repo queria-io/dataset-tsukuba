@@ -1,0 +1,47 @@
+schema: main
+name: mart_tsukuba_parking
+title: つくば市 駅前広場駐車場
+description: つくば市が公開する駅前広場駐車場（送迎用の市営駐車場）の一覧。1行が1駐車場で、最寄りの TX 駅・所在地・利用時間・駐車できる車両・料金・台数を持つ。元データに緯度経度は無い。
+keywords:
+  - 駐車場
+  - つくばエクスプレス
+  - つくば市
+published: true
+themes:
+  - transport_tourism
+sources:
+  - path: https://t1070170.dupf.jp/ckan/dataset/j009_001
+fields:
+  - name: local_government_code
+    title: 全国地方公共団体コード
+    semantic:
+      role: entity
+      name: city
+  - name: facility_id
+    title: ID
+    description: 元データの No.
+  - name: name
+    title: 名称
+    description: 元データの見出しは「駐輪場名称」
+  - name: nearest_station
+    title: 最寄りの TX 駅
+  - name: full_address
+    title: 所在地
+    description: 「茨城県」を前に付けている
+  - name: prefecture
+    title: 都道府県
+  - name: city
+    title: 市区町村
+  - name: parking_category
+    title: 駐車区分
+  - name: available_notes
+    title: 利用時間
+  - name: vehicles
+    title: 駐車可能な車両
+  - name: fee_details
+    title: 料金
+  - name: capacity
+    title: 供用台数
+    description: 車種を分けない合計
+  - name: notes
+    title: 備考

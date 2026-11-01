@@ -1,0 +1,95 @@
+schema: main
+name: mart_tsukuba_preschool
+title: つくば市 子育て施設
+description: つくば市が公開する認可保育所等一覧・私立幼稚園・認定こども園一覧・市立幼稚園一覧・地域子育て支援拠点を1つにまとめた子育て施設の一覧。1行が1施設で、どの一覧から来たかを source_dataset に持つ。私立幼稚園・認定こども園一覧の認定こども園は認可保育所等一覧と重なるので、認可保育所等一覧の行だけを残している。地域子育て支援拠点の一覧にある出張子育て広場は含まない。緯度経度は元データの値。
+keywords:
+  - 子育て
+  - 保育所
+  - 幼稚園
+  - 認定こども園
+  - つくば市
+published: true
+themes:
+  - education_culture
+sources:
+  - path: https://t1070170.dupf.jp/ckan/dataset/o019_001
+  - path: https://t1070170.dupf.jp/ckan/dataset/l012_001
+  - path: https://t1070170.dupf.jp/ckan/dataset/sirituyoutien
+  - path: https://t1070170.dupf.jp/ckan/dataset/o014_001
+fields:
+  - name: local_government_code
+    title: 全国地方公共団体コード
+    semantic:
+      role: entity
+      name: city
+  - name: source_dataset
+    title: 元の一覧
+    description: CKAN のデータセット ID（o019_001=認可保育所等一覧、l012_001=私立幼稚園・認定こども園一覧、sirituyoutien=市立幼稚園一覧、o014_001=地域子育て支援拠点）
+  - name: name
+    title: 名称
+  - name: name_kana
+    title: 名称（カナ）
+  - name: ownership
+    title: 区分
+    description: 公立 / 民間
+  - name: facility_type
+    title: 種別
+    description: 元の一覧の書き方（保育所・小規模保育事業所・幼稚園・認定こども園・地域子育て支援拠点）
+  - name: full_address
+    title: 所在地
+    description: 元データは「つくば市」から書かれているので、「茨城県」を前に付けている
+  - name: prefecture
+    title: 都道府県
+  - name: city
+    title: 市区町村
+  - name: building_name
+    title: 建物名等（方書）
+  - name: latitude
+    title: 緯度
+  - name: longitude
+    title: 経度
+  - name: access
+    title: アクセス方法
+  - name: capacity
+    title: 定員
+  - name: phone_number
+    title: 電話番号
+  - name: fax_number
+    title: FAX番号
+  - name: corporate_name
+    title: 団体名
+  - name: legal_entity_number
+    title: 法人番号
+    semantic: { role: entity, name: corporate_number }
+  - name: authorized_date
+    title: 認可等年月日
+  - name: age_range
+    title: 受入年齢
+    description: 認可保育所等一覧の保育年齢、私立幼稚園等一覧の対象児
+  - name: school_bus
+    title: 送迎バス
+  - name: available_days
+    title: 利用可能曜日
+    description: 地域子育て支援拠点は実施日
+  - name: start_time
+    title: 開始時間
+    description: 平日の開園時刻（HH:MM）。地域子育て支援拠点は実施時間が1区間のときだけ入れている
+  - name: end_time
+    title: 終了時間
+    description: 平日の閉園時刻（HH:MM）
+  - name: available_notes
+    title: 利用可能日時特記事項
+    description: 地域子育て支援拠点は実施時間をそのまま入れている
+  - name: saturday_start_time
+    title: 開園（土曜日）
+  - name: saturday_end_time
+    title: 閉園（土曜日）
+  - name: temporary_care
+    title: 一時預かりの有無
+  - name: attendance_area
+    title: 通園区域
+    description: 市立幼稚園のみ
+  - name: url
+    title: URL
+  - name: notes
+    title: 備考

@@ -1,0 +1,73 @@
+schema: ods
+name: preschool
+title: つくば市 子育て施設一覧（標準形式）
+description: つくば市の認可保育所等一覧・私立幼稚園・認定こども園一覧・市立幼稚園一覧・地域子育て支援拠点を1つにまとめた子育て施設の一覧を、デジタル庁「自治体標準オープンデータセット」の子育て施設一覧（データ項目定義書 A）の列名・並びで並べたもの。CSV や Excel でダウンロードすれば、そのまま標準形式のファイルとして使える。中身は main.mart_tsukuba_preschool と同じ行で、SQL で使うときは英語の列名のそちらが扱いやすい。ID は市の一覧に無いので空欄。種別は定義書の選択肢に読み替えている（保育所は公立・民間で認可公立保育所・認可私立保育所、幼稚園は公立幼稚園・私立幼稚園、小規模保育事業所と地域子育て支援拠点は その他）。型が書かれていない認定こども園は種別を空欄にしている。
+keywords:
+  - 自治体標準オープンデータセット
+  - 子育て
+  - 保育所
+  - 幼稚園
+  - 認定こども園
+  - つくば市
+published: true
+themes:
+  - education_culture
+sources:
+  - path: https://t1070170.dupf.jp/ckan/dataset/o019_001
+  - path: https://t1070170.dupf.jp/ckan/dataset/l012_001
+  - path: https://t1070170.dupf.jp/ckan/dataset/sirituyoutien
+  - path: https://t1070170.dupf.jp/ckan/dataset/o014_001
+fields:
+  - name: 全国地方公共団体コード
+  - name: ID
+  - name: 地方公共団体名
+  - name: 名称
+  - name: 名称_カナ
+  - name: 名称_英字
+  - name: 種別
+  - name: 所在地_全国地方公共団体コード
+  - name: 町字ID
+  - name: 所在地_連結表記
+  - name: 所在地_都道府県
+  - name: 所在地_市区町村
+  - name: 所在地_町字
+  - name: 所在地_番地以下
+  - name: 建物名等(方書)
+  - name: 緯度
+  - name: 経度
+  - name: 高度の種別
+  - name: 高度の値
+  - name: アクセス方法
+  - name: 駐車場情報
+  - name: 電話番号
+  - name: 内線番号
+  - name: FAX番号
+  - name: 連絡先メールアドレス
+  - name: 連絡先FormURL
+  - name: 連絡先備考（その他、SNSなど）
+  - name: 郵便番号
+  - name: 法人番号
+  - name: 団体名
+  - name: 認可等年月日
+  - name: 収容定員
+  - name: 受入年齢
+  - name: 利用可能曜日
+  - name: 開始時間
+  - name: 終了時間
+  - name: 利用可能日時特記事項
+  - name: 一時預かりの有無
+  - name: 子供預かり料金種別
+  - name: 子供預かり料金
+  - name: 子供預かり料金備考
+  - name: 子供預かり開所時間
+  - name: 子供預かり閉所時間
+  - name: 病児保育の有無
+  - name: 授乳室
+  - name: おむつ替えコーナー
+  - name: 飲食可否
+  - name: ベビーカー貸出
+  - name: ベビーカー利用
+  - name: URL
+  - name: 画像
+  - name: 画像_ライセンス
+  - name: 備考

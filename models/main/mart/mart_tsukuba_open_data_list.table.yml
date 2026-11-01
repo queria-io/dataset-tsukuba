@@ -1,0 +1,48 @@
+schema: main
+name: mart_tsukuba_open_data_list
+title: つくば市 オープンデータ一覧
+description: つくば市が公開するオープンデータの一覧。1行が1データで、データ名称・分類・掲載ページの URL・ライセンス・最終更新日を持つ。
+keywords:
+  - オープンデータ
+  - カタログ
+  - つくば市
+published: true
+themes:
+  - government_finance
+sources:
+  - path: https://t1070170.dupf.jp/ckan/dataset/m009_001
+fields:
+  - name: local_government_code
+    title: 全国地方公共団体コード
+    semantic:
+      role: entity
+      name: city
+  - name: dataset_id
+    title: 'NO'
+    description: 元データでは空欄
+  - name: prefecture
+    title: 都道府県名
+  - name: city
+    title: 市区町村名
+  - name: title
+    title: データ名称
+  - name: description
+    title: データ概要
+  - name: file_format
+    title: データ形式
+  - name: category
+    title: 分類
+  - name: update_frequency
+    title: 更新頻度
+  - name: url
+    title: URL
+  - name: api_available
+    title: API対応有無
+  - name: license
+    title: ライセンス
+  - name: published_date
+    title: 登録日
+  - name: last_modified_date
+    title: 最終更新日
+  - name: notes
+    title: 備考

@@ -1,0 +1,74 @@
+version: 2
+
+models:
+  - name: mart_tsukuba_bicycle_parking
+    description: つくば市が公開する自転車等駐車場（市営の駐輪場）の一覧。1行が1駐輪場で、工区に分かれたものは1行にまとめ、工区を sections に「;」でつないでいる。最寄りの TX 駅・所在地・利用時間・駐車できる車両・定期と一時の料金と台数を持つ。元データに緯度経度は無い。
+    access: public
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: local_government_code
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+      - name: facility_id
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+        data_tests:
+          - unique
+      - name: name
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+      - name: sections
+        data_type: VARCHAR
+      - name: nearest_station
+        data_type: VARCHAR
+      - name: full_address
+        data_type: VARCHAR
+      - name: prefecture
+        data_type: VARCHAR
+      - name: city
+        data_type: VARCHAR
+      - name: parking_category
+        data_type: VARCHAR
+      - name: hours_weekday
+        data_type: VARCHAR
+      - name: hours_holiday
+        data_type: VARCHAR
+      - name: hours_new_year
+        data_type: VARCHAR
+      - name: vehicles_regular
+        data_type: VARCHAR
+      - name: vehicles_temporary
+        data_type: VARCHAR
+      - name: fee_regular_bicycle
+        data_type: VARCHAR
+      - name: fee_regular_moped
+        data_type: VARCHAR
+      - name: fee_regular_motorcycle
+        data_type: VARCHAR
+      - name: fee_temporary_bicycle
+        data_type: VARCHAR
+      - name: fee_temporary_moped
+        data_type: VARCHAR
+      - name: fee_temporary_motorcycle
+        data_type: VARCHAR
+      - name: capacity_regular_bicycle
+        data_type: INTEGER
+      - name: capacity_regular_moped
+        data_type: INTEGER
+      - name: capacity_regular_motorcycle
+        data_type: INTEGER
+      - name: capacity_temporary_bicycle
+        data_type: INTEGER
+      - name: capacity_temporary_moped
+        data_type: INTEGER
+      - name: capacity_temporary_motorcycle
+        data_type: INTEGER
+      - name: capacity
+        data_type: INTEGER
+      - name: fee_type
+        data_type: VARCHAR
