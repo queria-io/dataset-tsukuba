@@ -1,0 +1,80 @@
+schema: main
+name: mart_tsukuba_bicycle_parking
+title: つくば市 自転車等駐車場
+description: つくば市が公開する自転車等駐車場（市営の駐輪場）の一覧。1行が1駐輪場で、工区に分かれたものは1行にまとめ、工区を sections に「;」でつないでいる。最寄りの TX 駅・所在地・利用時間・駐車できる車両・定期と一時の料金と台数を持つ。元データに緯度経度は無い。
+keywords:
+  - 駐輪場
+  - 自転車
+  - つくばエクスプレス
+  - つくば市
+published: true
+themes:
+  - transport_tourism
+sources:
+  - path: https://t1070170.dupf.jp/ckan/dataset/j008_001
+fields:
+  - name: municipality_code
+    title: 全国地方公共団体コード
+    semantic:
+      role: entity
+      name: city
+  - name: facility_id
+    title: ID
+    description: 元データの No.。工区をまとめたあとはテーブル内で一意
+  - name: name
+    title: 名称
+  - name: sections
+    title: 区画・工区
+    description: 「;」区切り
+  - name: nearest_station
+    title: 最寄りの TX 駅
+  - name: address
+    title: 所在地
+    description: 工区で所在地が違うものは「;」区切り。足りない「茨城県」「つくば市」を前に付けている
+  - name: prefecture
+    title: 都道府県
+  - name: city
+    title: 市区町村
+  - name: parking_category
+    title: 駐車区分
+    description: 一時 / 定期 / 一時・定期
+  - name: hours_weekday
+    title: 利用時間（平日）
+  - name: hours_holiday
+    title: 利用時間（土日祝日・12/29〜1/3）
+  - name: hours_new_year
+    title: 利用時間（元旦）
+  - name: vehicles_regular
+    title: 駐車可能な車両（定期）
+  - name: vehicles_temporary
+    title: 駐車可能な車両（一時）
+  - name: fee_regular_bicycle
+    title: 料金（定期・自転車）
+  - name: fee_regular_moped
+    title: 料金（定期・原付）
+  - name: fee_regular_motorcycle
+    title: 料金（定期・自動二輪車）
+  - name: fee_temporary_bicycle
+    title: 料金（一時・自転車）
+  - name: fee_temporary_moped
+    title: 料金（一時・原付）
+  - name: fee_temporary_motorcycle
+    title: 料金（一時・自動二輪車）
+  - name: capacity_regular_bicycle
+    title: 台数（定期・自転車）
+  - name: capacity_regular_moped
+    title: 台数（定期・原付）
+  - name: capacity_regular_motorcycle
+    title: 台数（定期・自動二輪車）
+  - name: capacity_temporary_bicycle
+    title: 台数（一時・自転車）
+  - name: capacity_temporary_moped
+    title: 台数（一時・原付）
+  - name: capacity_temporary_motorcycle
+    title: 台数（一時・自動二輪車）
+  - name: capacity
+    title: 台数（合計）
+    description: 定期・一時、自転車・原付・自動二輪車の台数の合計
+  - name: fee_type
+    title: 料金種別
+    description: 料金のどれかに金額があれば 有料、金額が無く 無料 とだけあれば 無料

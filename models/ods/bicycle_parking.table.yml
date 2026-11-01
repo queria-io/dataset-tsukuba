@@ -1,0 +1,56 @@
+schema: ods
+name: bicycle_parking
+title: つくば市 公営駐輪場一覧（標準形式）
+description: つくば市の自転車等駐車場（市営の駐輪場）の一覧を、デジタル庁「自治体標準オープンデータセット」の公営駐輪場一覧（データ項目定義書 C）の列名・並びで並べたもの。CSV や Excel でダウンロードすれば、そのまま標準形式のファイルとして使える。中身は main.mart_tsukuba_bicycle_parking と同じ行で、SQL で使うときは英語の列名のそちらが扱いやすい。概要に駐車区分（一時・定期）、説明に区画・工区を入れている。料金と利用時間は定義書の数値・時刻の列に分けられないので、料金備考と日時備考に文章のまま入れている。最大駐輪台数は自転車・原付・自動二輪車の台数の合計。
+keywords:
+  - 自治体標準オープンデータセット
+  - 駐輪場
+  - 自転車
+  - つくばエクスプレス
+  - つくば市
+published: true
+themes:
+  - transport_tourism
+sources:
+  - path: https://t1070170.dupf.jp/ckan/dataset/j008_001
+fields:
+  - name: 全国地方公共団体コード
+  - name: ID
+  - name: 地方公共団体名
+  - name: 名称
+  - name: 名称_カナ
+  - name: 名称_英字
+  - name: 施設通称
+  - name: 概要
+  - name: 説明
+  - name: 状態
+  - name: 所在地_全国地方公共団体コード
+  - name: 町字ID
+  - name: 所在地_連結表記
+  - name: 所在地_都道府県
+  - name: 所在地_市区町村
+  - name: 所在地_町字
+  - name: 所在地_番地以下
+  - name: 建物名等_方書
+  - name: 緯度
+  - name: 経度
+  - name: 座標参照系
+  - name: 座標参照系コード
+  - name: 連絡先名称
+  - name: 連絡先電話番号
+  - name: 連絡先内線番号
+  - name: 連絡先メールアドレス
+  - name: 連絡先FormURL
+  - name: 連絡先備考
+  - name: 郵便番号
+  - name: サービス曜日
+  - name: 開始時刻
+  - name: 終了時刻
+  - name: 日時備考
+  - name: 料金種別
+  - name: 料金
+  - name: 料金備考
+  - name: 決済種別
+  - name: 屋内外
+  - name: 最大駐輪台数
+  - name: 備考

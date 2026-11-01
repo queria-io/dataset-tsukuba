@@ -1,0 +1,55 @@
+{{ config(materialized='view') }}
+
+{# 自治体標準オープンデータセット「公営駐輪場一覧」（データ項目定義書 C の 26）の定義書どおりの
+   列名・並びで出す。Queria からこのまま CSV / Excel でダウンロードすれば納品物になる。
+   概要に駐車区分（一時・定期）、説明に区画・工区を入れている。料金と利用時間は定義書の数値・時刻の列に分けられないので、料金備考と日時備考に文章のまま入れている。最大駐輪台数は自転車・原付・自動二輪車の台数の合計 #}
+SELECT
+    municipality_code                                  AS "全国地方公共団体コード",
+    facility_id                                        AS "ID",
+    '茨城県つくば市'                                          AS "地方公共団体名",
+    name                                               AS "名称",
+    CAST(NULL AS VARCHAR)                              AS "名称_カナ",
+    CAST(NULL AS VARCHAR)                              AS "名称_英字",
+    CAST(NULL AS VARCHAR)                              AS "施設通称",
+    parking_category                                   AS "概要",
+    sections                                           AS "説明",
+    CAST(NULL AS VARCHAR)                              AS "状態",
+    CASE WHEN city = 'つくば市' THEN '082201' END          AS "所在地_全国地方公共団体コード",
+    CAST(NULL AS VARCHAR)                              AS "町字ID",
+    address                                            AS "所在地_連結表記",
+    prefecture                                         AS "所在地_都道府県",
+    city                                               AS "所在地_市区町村",
+    CAST(NULL AS VARCHAR)                              AS "所在地_町字",
+    CAST(NULL AS VARCHAR)                              AS "所在地_番地以下",
+    CAST(NULL AS VARCHAR)                              AS "建物名等_方書",
+    CAST(NULL AS VARCHAR)                              AS "緯度",
+    CAST(NULL AS VARCHAR)                              AS "経度",
+    CAST(NULL AS VARCHAR)                              AS "座標参照系",
+    CAST(NULL AS VARCHAR)                              AS "座標参照系コード",
+    CAST(NULL AS VARCHAR)                              AS "連絡先名称",
+    CAST(NULL AS VARCHAR)                              AS "連絡先電話番号",
+    CAST(NULL AS VARCHAR)                              AS "連絡先内線番号",
+    CAST(NULL AS VARCHAR)                              AS "連絡先メールアドレス",
+    CAST(NULL AS VARCHAR)                              AS "連絡先FormURL",
+    CAST(NULL AS VARCHAR)                              AS "連絡先備考",
+    CAST(NULL AS VARCHAR)                              AS "郵便番号",
+    CAST(NULL AS VARCHAR)                              AS "サービス曜日",
+    CAST(NULL AS VARCHAR)                              AS "開始時刻",
+    CAST(NULL AS VARCHAR)                              AS "終了時刻",
+    NULLIF(concat_ws('; ', '平日: ' || replace(hours_weekday, chr(10), ''), '土日祝日・12/29〜1/3: ' || replace(hours_holiday, chr(10), ''), '元旦: ' || replace(hours_new_year, chr(10), '')), '') AS "日時備考",
+    fee_type                                           AS "料金種別",
+    CAST(NULL AS VARCHAR)                              AS "料金",
+    replace(NULLIF(concat_ws('; ',
+        '定期・自転車: ' || fee_regular_bicycle,
+        '定期・原付: ' || fee_regular_moped,
+        '定期・自動二輪車: ' || fee_regular_motorcycle,
+        '一時・自転車: ' || fee_temporary_bicycle,
+        '一時・原付: ' || fee_temporary_moped,
+        '一時・自動二輪車: ' || fee_temporary_motorcycle
+    ), ''), chr(10), ' ') AS "料金備考",
+    CAST(NULL AS VARCHAR)                              AS "決済種別",
+    CAST(NULL AS VARCHAR)                              AS "屋内外",
+    CAST(capacity AS VARCHAR)                          AS "最大駐輪台数",
+    CAST(NULL AS VARCHAR)                              AS "備考"
+FROM {{ ref('mart_tsukuba_bicycle_parking') }}
+ORDER BY TRY_CAST(facility_id AS INTEGER)
