@@ -10,7 +10,7 @@ WITH source AS (
     FROM {{ ref('raw_tsukuba_educational_institution') }}
 )
 SELECT
-    '082201'                                          AS municipality_code,
+    '082201'                                          AS local_government_code,
     CASE "シート"
         WHEN '幼稚園' THEN 'A1'
         WHEN '小学校' THEN 'B1'
@@ -19,7 +19,7 @@ SELECT
     END                                               AS school_type,
     "シート"                                          AS school_type_name,
     "学校名"                                          AS name,
-    {{ tsukuba_address('"所在地"') }}                 AS address,
+    {{ tsukuba_address('"所在地"') }}                 AS full_address,
     'つくば市'                                        AS city,
     NULLIF(regexp_extract(rest, '^([^0-9０-９]+)', 1), '') AS town,
     NULLIF(regexp_replace(rest, '^[^0-9０-９]+', ''), '')  AS street_number,

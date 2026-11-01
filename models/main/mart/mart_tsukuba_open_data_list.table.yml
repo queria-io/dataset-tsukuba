@@ -12,7 +12,7 @@ themes:
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/m009_001
 fields:
-  - name: municipality_code
+  - name: local_government_code
     title: 全国地方公共団体コード
     semantic:
       role: entity

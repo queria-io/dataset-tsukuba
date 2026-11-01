@@ -36,7 +36,7 @@ unioned AS (
         CAST(NULL AS VARCHAR)                         AS attendance_area,
         NULLIF("URL", '')                            AS url,
         NULLIF("備考", '')                           AS notes,
-        NULLIF("法人番号", '')                       AS corporate_number,
+        NULLIF("法人番号", '')                       AS legal_entity_number,
         NULLIF("認可等年月日", '')                   AS authorized_date
     FROM nursery
 
@@ -83,24 +83,24 @@ unioned AS (
     WHERE NULLIF("幼稚園名", '') IS NOT NULL
 )
 SELECT
-    '082201'                                          AS municipality_code,
+    '082201'                                          AS local_government_code,
     source_dataset,
     name,
     name_kana,
     ownership,
     facility_type,
-    {{ tsukuba_address('address_raw') }}              AS address,
+    {{ tsukuba_address('address_raw') }}              AS full_address,
     '茨城県'                                          AS prefecture,
     'つくば市'                                        AS city,
     building_name,
-    {{ tsukuba_coordinate('lat_raw', 'lon_raw', 'lat') }} AS lat,
-    {{ tsukuba_coordinate('lat_raw', 'lon_raw', 'lon') }} AS lon,
+    {{ tsukuba_coordinate('lat_raw', 'lon_raw', 'lat') }} AS latitude,
+    {{ tsukuba_coordinate('lat_raw', 'lon_raw', 'lon') }} AS longitude,
     access,
     capacity,
     phone_number,
     fax_number,
     corporate_name,
-    corporate_number,
+    legal_entity_number,
     TRY_CAST(authorized_date AS DATE)                 AS authorized_date,
     age_range,
     school_bus,

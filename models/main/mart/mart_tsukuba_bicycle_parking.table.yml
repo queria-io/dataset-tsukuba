@@ -13,7 +13,7 @@ themes:
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/j008_001
 fields:
-  - name: municipality_code
+  - name: local_government_code
     title: 全国地方公共団体コード
     semantic:
       role: entity
@@ -28,7 +28,7 @@ fields:
     description: 「;」区切り
   - name: nearest_station
     title: 最寄りの TX 駅
-  - name: address
+  - name: full_address
     title: 所在地
     description: 工区で所在地が違うものは「;」区切り。足りない「茨城県」「つくば市」を前に付けている
   - name: prefecture

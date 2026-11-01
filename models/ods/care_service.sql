@@ -4,7 +4,7 @@
    列名・並びで出す。Queria からこのまま CSV / Excel でダウンロードすれば納品物になる。
    市の一覧に無い項目（カナ・英字・緯度経度・法人番号・利用可能曜日など）は空欄。実施サービスは市の一覧のサービス種類の書き方のまま #}
 SELECT
-    municipality_code                                  AS "全国地方公共団体コード",
+    local_government_code                                  AS "全国地方公共団体コード",
     facility_id                                        AS "ID",
     '茨城県つくば市'                                          AS "地方公共団体名",
     name                                               AS "介護サービス事業所名称",
@@ -13,7 +13,7 @@ SELECT
     service_type                                       AS "実施サービス",
     CASE WHEN city = 'つくば市' THEN '082201' END          AS "所在地_全国地方公共団体コード",
     CAST(NULL AS VARCHAR)                              AS "町字ID",
-    address                                            AS "所在地_連結表記",
+    full_address                                            AS "所在地_連結表記",
     prefecture                                         AS "所在地_都道府県",
     city                                               AS "所在地_市区町村",
     CAST(NULL AS VARCHAR)                              AS "所在地_町字",

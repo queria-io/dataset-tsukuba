@@ -8,7 +8,7 @@ models:
       contract:
         enforced: true
     columns:
-      - name: municipality_code
+      - name: local_government_code
         data_type: VARCHAR
         constraints:
           - type: not_null

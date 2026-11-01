@@ -12,7 +12,7 @@ themes:
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/j009_001
 fields:
-  - name: municipality_code
+  - name: local_government_code
     title: 全国地方公共団体コード
     semantic:
       role: entity
@@ -25,7 +25,7 @@ fields:
     description: 元データの見出しは「駐輪場名称」
   - name: nearest_station
     title: 最寄りの TX 駅
-  - name: address
+  - name: full_address
     title: 所在地
     description: 「茨城県」を前に付けている
   - name: prefecture

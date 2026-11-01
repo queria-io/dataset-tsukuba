@@ -3,12 +3,12 @@
 {# 1 行が事業所 × サービスの組。介護保険事業所番号は 10 桁だが、Excel の数値として
    保存されているせいで先頭の 0 が落ちている（872001813 は 0872001813）ので、数字だけの番号は 10 桁に戻す #}
 SELECT
-    '082201'                                          AS municipality_code,
+    '082201'                                          AS local_government_code,
     "No."                                             AS facility_id,
     "事業所名"                                        AS name,
     "サービスコード"                                  AS service_code,
     "サービス種類"                                    AS service_type,
-    {{ tsukuba_address('"所在地"') }}                 AS address,
+    {{ tsukuba_address('"所在地"') }}                 AS full_address,
     '茨城県'                                          AS prefecture,
     'つくば市'                                        AS city,
     CASE WHEN regexp_full_match("郵便番号", '[0-9]+') THEN lpad("郵便番号", 7, '0')

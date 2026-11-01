@@ -4,7 +4,7 @@
    列名・並びで出す。Queria からこのまま CSV / Excel でダウンロードすれば納品物になる。
    概要に駐車区分（一時・定期）、説明に区画・工区を入れている。料金と利用時間は定義書の数値・時刻の列に分けられないので、料金備考と日時備考に文章のまま入れている。最大駐輪台数は自転車・原付・自動二輪車の台数の合計 #}
 SELECT
-    municipality_code                                  AS "全国地方公共団体コード",
+    local_government_code                                  AS "全国地方公共団体コード",
     facility_id                                        AS "ID",
     '茨城県つくば市'                                          AS "地方公共団体名",
     name                                               AS "名称",
@@ -16,7 +16,7 @@ SELECT
     CAST(NULL AS VARCHAR)                              AS "状態",
     CASE WHEN city = 'つくば市' THEN '082201' END          AS "所在地_全国地方公共団体コード",
     CAST(NULL AS VARCHAR)                              AS "町字ID",
-    address                                            AS "所在地_連結表記",
+    full_address                                            AS "所在地_連結表記",
     prefecture                                         AS "所在地_都道府県",
     city                                               AS "所在地_市区町村",
     CAST(NULL AS VARCHAR)                              AS "所在地_町字",

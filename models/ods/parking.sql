@@ -4,7 +4,7 @@
    列名・並びで出す。Queria からこのまま CSV / Excel でダウンロードすれば納品物になる。
    概要に駐車区分（送迎用）を入れている。料金は料金備考に文章のまま入れている。最大駐車台数は車種ごとに分かれていないので空欄（合計は main の表の capacity） #}
 SELECT
-    municipality_code                                  AS "全国地方公共団体コード",
+    local_government_code                                  AS "全国地方公共団体コード",
     facility_id                                        AS "ID",
     '茨城県つくば市'                                          AS "地方公共団体名",
     name                                               AS "名称",
@@ -16,7 +16,7 @@ SELECT
     CAST(NULL AS VARCHAR)                              AS "状態",
     CASE WHEN city = 'つくば市' THEN '082201' END          AS "所在地_全国地方公共団体コード",
     CAST(NULL AS VARCHAR)                              AS "町字ID",
-    address                                            AS "連結表記",
+    full_address                                            AS "連結表記",
     prefecture                                         AS "都道府県",
     city                                               AS "市区町村",
     CAST(NULL AS VARCHAR)                              AS "町字",

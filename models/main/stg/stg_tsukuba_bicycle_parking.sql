@@ -30,7 +30,7 @@ grouped AS (
         arg_min("TX駅", row_no)                                       AS nearest_station,
         arg_min("駐輪場名称", row_no)                                 AS name,
         string_agg(NULLIF("区画", ''), ';' ORDER BY row_no)           AS sections,
-        string_agg(address_full, ';' ORDER BY row_no) FILTER (WHERE first_address) AS address,
+        string_agg(address_full, ';' ORDER BY row_no) FILTER (WHERE first_address) AS full_address,
         arg_min("駐車区分", row_no)                                   AS parking_category,
         arg_min("利用時間_平日", row_no)                              AS hours_weekday,
         arg_min("利用時間_土日祝日・12/29〜12/31・1/2〜1/3", row_no)                AS hours_holiday,
@@ -65,12 +65,12 @@ counted AS (
     FROM grouped
 )
 SELECT
-    '082201'                                          AS municipality_code,
+    '082201'                                          AS local_government_code,
     facility_id,
     name,
     sections,
     nearest_station,
-    address,
+    full_address,
     '茨城県'                                          AS prefecture,
     'つくば市'                                        AS city,
     parking_category,

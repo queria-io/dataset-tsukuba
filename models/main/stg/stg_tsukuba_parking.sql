@@ -1,11 +1,11 @@
 {{ config(materialized='view') }}
 
 SELECT
-    '082201'                                          AS municipality_code,
+    '082201'                                          AS local_government_code,
     "No"                                              AS facility_id,
     "駐輪場名称"                                      AS name,
     NULLIF("TX駅", '')                               AS nearest_station,
-    {{ tsukuba_address('"所在地"') }}                 AS address,
+    {{ tsukuba_address('"所在地"') }}                 AS full_address,
     '茨城県'                                          AS prefecture,
     'つくば市'                                        AS city,
     NULLIF("駐車区分", '')                           AS parking_category,

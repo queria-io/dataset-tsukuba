@@ -8,7 +8,7 @@ models:
       contract:
         enforced: true
     columns:
-      - name: municipality_code
+      - name: local_government_code
         data_type: VARCHAR
         constraints:
           - type: not_null
@@ -24,7 +24,7 @@ models:
           - type: not_null
       - name: nearest_station
         data_type: VARCHAR
-      - name: address
+      - name: full_address
         data_type: VARCHAR
       - name: prefecture
         data_type: VARCHAR

@@ -15,7 +15,7 @@ themes:
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/l010_001
 fields:
-  - name: municipality_code
+  - name: local_government_code
     title: 全国地方公共団体コード
     semantic:
       role: entity
@@ -28,7 +28,7 @@ fields:
     description: 元データのシート名
   - name: name
     title: 学校名
-  - name: address
+  - name: full_address
     title: 所在地
     description: 元データは「つくば市」から書かれているので、「茨城県」を前に付けている
   - name: city

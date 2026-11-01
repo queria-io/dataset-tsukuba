@@ -5,7 +5,7 @@
    データセット_ID とファイルの項目は市の一覧に無いので空欄。データ形式はファイル形式、ライセンスと API 対応有無はファイルの項目に入れている #}
 SELECT
     CAST(NULL AS VARCHAR)                              AS "データセット_ID",
-    municipality_code                                  AS "全国地方公共団体コード",
+    local_government_code                                  AS "全国地方公共団体コード",
     prefecture || city                                 AS "地方公共団体名",
     title                                              AS "データセット_タイトル",
     CAST(NULL AS VARCHAR)                              AS "データセット_サブタイトル",

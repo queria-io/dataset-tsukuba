@@ -17,7 +17,7 @@ sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/sirituyoutien
   - path: https://t1070170.dupf.jp/ckan/dataset/o014_001
 fields:
-  - name: municipality_code
+  - name: local_government_code
     title: 全国地方公共団体コード
     semantic:
       role: entity
@@ -35,7 +35,7 @@ fields:
   - name: facility_type
     title: 種別
     description: 元の一覧の書き方（保育所・小規模保育事業所・幼稚園・認定こども園・地域子育て支援拠点）
-  - name: address
+  - name: full_address
     title: 所在地
     description: 元データは「つくば市」から書かれているので、「茨城県」を前に付けている
   - name: prefecture
@@ -44,9 +44,9 @@ fields:
     title: 市区町村
   - name: building_name
     title: 建物名等（方書）
-  - name: lat
+  - name: latitude
     title: 緯度
-  - name: lon
+  - name: longitude
     title: 経度
   - name: access
     title: アクセス方法
@@ -58,8 +58,9 @@ fields:
     title: FAX番号
   - name: corporate_name
     title: 団体名
-  - name: corporate_number
+  - name: legal_entity_number
     title: 法人番号
+    semantic: { role: entity, name: corporate_number }
   - name: authorized_date
     title: 認可等年月日
   - name: age_range

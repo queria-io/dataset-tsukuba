@@ -14,7 +14,7 @@ themes:
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/o009_001
 fields:
-  - name: municipality_code
+  - name: local_government_code
     title: 全国地方公共団体コード
     semantic:
       role: entity
@@ -28,7 +28,7 @@ fields:
     title: サービスコード
   - name: service_type
     title: サービス種類
-  - name: address
+  - name: full_address
     title: 所在地
   - name: prefecture
     title: 都道府県

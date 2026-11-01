@@ -1,7 +1,7 @@
 {{ config(materialized='view') }}
 
 SELECT
-    "都道府県コード又は市区町村コード"              AS municipality_code,
+    "都道府県コード又は市区町村コード"              AS local_government_code,
     NULLIF("NO", '')                                 AS dataset_id,
     "都道府県名"                                      AS prefecture,
     "市区町村名"                                      AS city,
