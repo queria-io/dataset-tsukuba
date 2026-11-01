@@ -21,3 +21,9 @@ models:
     description: 該当性別・年齢層の人口
 - name: stg_tsukuba_emergency_shelter_20241201
   description: つくば市指定緊急避難場所（2024年12月時点）をカラム英語化・フラグBOOLEAN化して正規化
+- name: stg_tsukuba_public_wireless_lan
+  description: 公衆無線LANアクセスポイント一覧をカラム英語化したもの
+- name: stg_tsukuba_fire_hydrant
+  description: 消防水利をカラム英語化し、緯度経度・口径・容量を数値化したもの
+- name: stg_tsukuba_polling_place
+  description: 投票所一覧から合計行を除き、カラム英語化したもの
