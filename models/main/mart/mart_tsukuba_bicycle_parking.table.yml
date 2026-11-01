@@ -41,7 +41,7 @@ fields:
   - name: hours_weekday
     title: 利用時間（平日）
   - name: hours_holiday
-    title: 利用時間（土日祝日・12/29〜1/3）
+    title: 利用時間（土日祝日・12/29〜12/31・1/2〜1/3）
   - name: hours_new_year
     title: 利用時間（元旦）
   - name: vehicles_regular

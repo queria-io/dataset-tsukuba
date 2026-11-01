@@ -19,8 +19,8 @@ SELECT
     CASE WHEN regexp_full_match("介護保険事業所番号", '[0-9]+') THEN lpad("介護保険事業所番号", 10, '0')
          ELSE NULLIF("介護保険事業所番号", '') END    AS business_number,
     TRY_CAST("定員" AS INTEGER)                       AS capacity,
-    "介護予防" IN ('〇', '○')                        AS preventive_care,
-    "総合事業" IN ('〇', '○')                        AS comprehensive_service,
+    COALESCE("介護予防" IN ('〇', '○'), false)       AS preventive_care,
+    COALESCE("総合事業" IN ('〇', '○'), false)       AS comprehensive_service,
     NULLIF("圏域", '')                               AS service_area,
     TRY_CAST("指定年月日" AS DATE)                    AS designated_date,
     NULLIF("みなし区分", '')                         AS deemed_category

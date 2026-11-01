@@ -38,15 +38,9 @@ POLLING_PLACE_HEADER = ["№", "投票区番号", "投票区", "投票所", "投
 MIN_POLLING_PLACE_SHEETS = 6
 
 
-def download_public_wireless_lan(dest: str) -> list[Path]:
-    _clear_csv(Path(dest))
-    resources = package_resources(PUBLIC_WIRELESS_LAN, "CSV")
-    # 時点の違う CSV が並ぶと同じアクセスポイントが二重に入る。どれを採るかは人が決める
-    if len(resources) != 1:
-        raise SystemExit(
-            f"public_wireless_lan: CSV が {len(resources)} 件ある (1 件のはず)。上流の構成が変わった"
-        )
-    return download(resources, Path(dest), normalize_encoding=True)
+def download_public_wireless_lan(dest: str) -> Path:
+    # 時点の違う CSV が並ぶと同じアクセスポイントが二重に入るので、1 件のときだけ取る
+    return download_csv(PUBLIC_WIRELESS_LAN, dest)
 
 
 def download_fire_hydrant(dest: str) -> list[Path]:
@@ -63,44 +57,13 @@ def download_polling_place(dest: str, out: str) -> Path:
 
     1 列目には元のシート名（地区）を入れる。合計行などの選別は dbt 側でする。
     """
-    resources = package_resources(POLLING_PLACE, "XLSX")
-    if len(resources) != 1:
-        raise SystemExit(
-            f"polling_place: XLSX が {len(resources)} 件ある (1 件のはず)。上流の構成が変わった"
-        )
-    (xlsx,) = download(resources, Path(dest))
-
-    rows: list[list[str]] = []
-    sheets: list[str] = []
-    skipped: list[str] = []
-    wb = load_workbook(xlsx, read_only=True, data_only=True)
-    try:
-        for ws in wb.worksheets:
-            values = list(ws.iter_rows(values_only=True))
-            if not values or [_cell(v) for v in values[0][: len(POLLING_PLACE_HEADER)]] != POLLING_PLACE_HEADER:
-                skipped.append(ws.title)
-                continue
-            sheets.append(ws.title)
-            for row in values[1:]:
-                cells = [_cell(v) for v in row[: len(POLLING_PLACE_HEADER)]]
-                if any(cells):
-                    rows.append([ws.title, *cells])
-    finally:
-        wb.close()
-    if skipped:
-        logger.warning("polling_place: 投票所の様式でないシートを読み飛ばした (%s)", "、".join(skipped))
-    if len(sheets) < MIN_POLLING_PLACE_SHEETS:
-        raise SystemExit(
-            f"polling_place: 投票所のシートが {len(sheets)} 枚しかない ({MIN_POLLING_PLACE_SHEETS} 枚のはず)。上流の様式が変わった"
-        )
-
-    path = Path(out)
-    with path.open("w", encoding="utf-8", newline="") as f:
-        writer = csv.writer(f)
-        writer.writerow(["地区", *POLLING_PLACE_HEADER])
-        writer.writerows(rows)
-    logger.info("polling_place: %d シート %d 行 (%s)", len(sheets), len(rows), "、".join(sheets))
-    return path
+    return download_xlsx(
+        POLLING_PLACE, dest, out,
+        layouts=[[POLLING_PLACE_HEADER]],
+        columns=POLLING_PLACE_HEADER,
+        min_sheets=MIN_POLLING_PLACE_SHEETS,
+        sheet_column="地区",
+    )
 
 
 CARE_SERVICE_HEADER = [
@@ -139,7 +102,7 @@ BICYCLE_PARKING_LAYOUT = [
 ]
 BICYCLE_PARKING_COLUMNS = [
     "TX駅", "No", "駐輪場名称", "区画", "所在地", "駐車区分",
-    "利用時間_平日", "利用時間_土日祝日・年末年始", "利用時間_元旦",
+    "利用時間_平日", "利用時間_土日祝日・12/29〜12/31・1/2〜1/3", "利用時間_元旦",
     "駐車可能な車両_定期", "駐車可能な車両_一時",
     "料金_定期_自転車", "料金_定期_原付", "料金_定期_自動二輪車",
     "料金_一時_自転車", "料金_一時_原付", "料金_一時_自動二輪車",
@@ -214,6 +177,7 @@ def download_xlsx(
     layouts: list[list[list[str]]],
     columns: list[str],
     min_sheets: int = 1,
+    sheet_column: str = "シート",
 ) -> Path:
     """XLSX が 1 本だけ載っているデータセットを取得し、表のシートを縦につないだ CSV を `out` に書く。
 
@@ -243,7 +207,7 @@ def download_xlsx(
                 cells = [_cell(v) for v in row[:width]]
                 cells += [""] * (width - len(cells))
                 if any(cells):
-                    rows.append([ws.title, *cells])
+                    rows.append([ws.title, str(len(rows) + 1), *cells])
     finally:
         wb.close()
     if skipped:
@@ -257,7 +221,7 @@ def download_xlsx(
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["シート", *columns])
+        writer.writerow([sheet_column, "行", *columns])
         writer.writerows(rows)
     logger.info("%s: %d シート %d 行", package_id, len(sheets), len(rows))
     return path

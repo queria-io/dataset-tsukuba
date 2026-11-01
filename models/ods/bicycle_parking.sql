@@ -36,7 +36,7 @@ SELECT
     CAST(NULL AS VARCHAR)                              AS "サービス曜日",
     CAST(NULL AS VARCHAR)                              AS "開始時刻",
     CAST(NULL AS VARCHAR)                              AS "終了時刻",
-    NULLIF(concat_ws('; ', '平日: ' || replace(hours_weekday, chr(10), ''), '土日祝日・12/29〜1/3: ' || replace(hours_holiday, chr(10), ''), '元旦: ' || replace(hours_new_year, chr(10), '')), '') AS "日時備考",
+    NULLIF(concat_ws('; ', '平日: ' || replace(hours_weekday, chr(10), ''), '土日祝日・12/29〜12/31・1/2〜1/3: ' || replace(hours_holiday, chr(10), ''), '元旦: ' || replace(hours_new_year, chr(10), '')), '') AS "日時備考",
     fee_type                                           AS "料金種別",
     CAST(NULL AS VARCHAR)                              AS "料金",
     replace(NULLIF(concat_ws('; ',

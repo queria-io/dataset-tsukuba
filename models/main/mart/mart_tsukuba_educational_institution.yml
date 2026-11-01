@@ -16,6 +16,9 @@ models:
         data_type: VARCHAR
         constraints:
           - type: not_null
+        # mart はビューで constraints が効かない。シート名が変わって学校種が空になるのをここで止める
+        data_tests:
+          - not_null
       - name: school_type_name
         data_type: VARCHAR
         constraints:

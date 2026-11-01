@@ -7,11 +7,22 @@
 
 {# 工区に分かれた駐輪場は工区ごとに行があり、料金と台数は先頭の工区の行にだけ入っている。
    No ごとに 1 行にまとめ、工区（区画）と所在地は「;」でつなぐ。
+   行の順はブックの中の順（「行」列）で決める。
    台数は「770台」「３台」のような書き方なので、全角数字を半角にして数にする。「-」は 0 台 #}
 WITH source AS (
-    SELECT *, ROW_NUMBER() OVER () AS row_no
+    SELECT
+        *,
+        CAST("行" AS INTEGER) AS row_no,
+        {{ tsukuba_address('"所在地"') }} AS address_full
     FROM {{ ref('raw_tsukuba_bicycle_parking') }}
     WHERE NULLIF("No", '') IS NOT NULL
+),
+{# 工区で所在地が同じものは 1 回だけ数え、ブックの中で先に出た順につなぐ #}
+numbered AS (
+    SELECT
+        *,
+        ROW_NUMBER() OVER (PARTITION BY "No", address_full ORDER BY row_no) = 1 AS first_address
+    FROM source
 ),
 grouped AS (
     SELECT
@@ -19,10 +30,10 @@ grouped AS (
         arg_min("TX駅", row_no)                                       AS nearest_station,
         arg_min("駐輪場名称", row_no)                                 AS name,
         string_agg(NULLIF("区画", ''), ';' ORDER BY row_no)           AS sections,
-        string_agg(DISTINCT {{ tsukuba_address('"所在地"') }}, ';')   AS address,
+        string_agg(address_full, ';' ORDER BY row_no) FILTER (WHERE first_address) AS address,
         arg_min("駐車区分", row_no)                                   AS parking_category,
         arg_min("利用時間_平日", row_no)                              AS hours_weekday,
-        arg_min("利用時間_土日祝日・年末年始", row_no)                AS hours_holiday,
+        arg_min("利用時間_土日祝日・12/29〜12/31・1/2〜1/3", row_no)                AS hours_holiday,
         arg_min("利用時間_元旦", row_no)                              AS hours_new_year,
         arg_min("駐車可能な車両_定期", row_no)                        AS vehicles_regular,
         arg_min("駐車可能な車両_一時", row_no)                        AS vehicles_temporary,
@@ -39,7 +50,7 @@ grouped AS (
         arg_min("供用台数_一時_原付", row_no)                         AS capacity_temporary_moped,
         arg_min("供用台数_一時_自動二輪車", row_no)                   AS capacity_temporary_motorcycle,
         min(row_no)                                                   AS first_row
-    FROM source
+    FROM numbered
     GROUP BY "No"
 ),
 counted AS (

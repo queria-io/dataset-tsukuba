@@ -15,5 +15,5 @@ END
 {% macro tsukuba_coordinate(lat, lon, part) -%}
 CASE WHEN TRY_CAST({{ lat }} AS DOUBLE) BETWEEN 20.0 AND 46.0
       AND TRY_CAST({{ lon }} AS DOUBLE) BETWEEN 122.0 AND 154.5
-     THEN TRY_CAST({{ part == 'lat' and lat or lon }} AS DOUBLE) END
+     THEN TRY_CAST({{ lat if part == 'lat' else lon }} AS DOUBLE) END
 {%- endmacro %}

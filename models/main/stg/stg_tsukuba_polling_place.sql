@@ -7,7 +7,7 @@ SELECT
     '082201'                                          AS municipality_code,
     "投票区番号"                                      AS voting_district_number,
     REPLACE(REPLACE("投票所", chr(13), ''), chr(10), '') AS name,
-    '茨城県つくば市' || "投票所住所"                  AS address,
+    {{ tsukuba_address('"投票所住所"') }}            AS address,
     '茨城県'                                          AS prefecture,
     'つくば市'                                        AS city,
     '投票所'                                          AS polling_place_type,
