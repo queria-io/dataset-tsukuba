@@ -1,0 +1,45 @@
+schema: main
+name: mart_tsukuba_educational_institution
+title: つくば市 市立学校
+description: つくば市が公開する市立小学校・中学校・義務教育学校・幼稚園の一覧。1行が1校で、学校種・所在地・電話番号・通学区域を持つ。元データに緯度経度と学校コードは無い。
+keywords:
+  - 学校
+  - 小学校
+  - 中学校
+  - 義務教育学校
+  - 通学区域
+  - つくば市
+published: true
+themes:
+  - education_culture
+sources:
+  - path: https://t1070170.dupf.jp/ckan/dataset/l010_001
+fields:
+  - name: municipality_code
+    title: 全国地方公共団体コード
+    semantic:
+      role: entity
+      name: city
+  - name: school_type
+    title: 学校種
+    description: 定義書の学校種コード（A1=幼稚園、B1=小学校、C1=中学校、C2=義務教育学校）
+  - name: school_type_name
+    title: 学校種（名称）
+    description: 元データのシート名
+  - name: name
+    title: 学校名
+  - name: address
+    title: 所在地
+    description: 元データは「つくば市」から書かれているので、「茨城県」を前に付けている
+  - name: city
+    title: 市区町村
+  - name: town
+    title: 町字
+    description: 所在地の市のあとから最初の算用数字の手前まで
+  - name: street_number
+    title: 番地以下
+  - name: phone_number
+    title: 電話番号
+  - name: school_district
+    title: 通学区域
+    description: 幼稚園は通園区域
