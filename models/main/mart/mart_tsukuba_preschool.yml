@@ -1,0 +1,74 @@
+version: 2
+
+models:
+  - name: mart_tsukuba_preschool
+    description: つくば市が公開する認可保育所等一覧・私立幼稚園・認定こども園一覧・市立幼稚園一覧・地域子育て支援拠点を1つにまとめた子育て施設の一覧。1行が1施設で、どの一覧から来たかを source_dataset に持つ。私立幼稚園・認定こども園一覧の認定こども園は認可保育所等一覧と重なるので、認可保育所等一覧の行だけを残している。地域子育て支援拠点の一覧にある出張子育て広場は含まない。緯度経度は元データの値。
+    access: public
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: municipality_code
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+      - name: source_dataset
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+      - name: name
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+      - name: name_kana
+        data_type: VARCHAR
+      - name: ownership
+        data_type: VARCHAR
+      - name: facility_type
+        data_type: VARCHAR
+      - name: address
+        data_type: VARCHAR
+      - name: prefecture
+        data_type: VARCHAR
+      - name: city
+        data_type: VARCHAR
+      - name: building_name
+        data_type: VARCHAR
+      - name: lat
+        data_type: DOUBLE
+      - name: lon
+        data_type: DOUBLE
+      - name: access
+        data_type: VARCHAR
+      - name: capacity
+        data_type: INTEGER
+      - name: phone_number
+        data_type: VARCHAR
+      - name: fax_number
+        data_type: VARCHAR
+      - name: corporate_name
+        data_type: VARCHAR
+      - name: age_range
+        data_type: VARCHAR
+      - name: school_bus
+        data_type: VARCHAR
+      - name: available_days
+        data_type: VARCHAR
+      - name: start_time
+        data_type: VARCHAR
+      - name: end_time
+        data_type: VARCHAR
+      - name: available_notes
+        data_type: VARCHAR
+      - name: saturday_start_time
+        data_type: VARCHAR
+      - name: saturday_end_time
+        data_type: VARCHAR
+      - name: temporary_care
+        data_type: VARCHAR
+      - name: attendance_area
+        data_type: VARCHAR
+      - name: url
+        data_type: VARCHAR
+      - name: notes
+        data_type: VARCHAR
