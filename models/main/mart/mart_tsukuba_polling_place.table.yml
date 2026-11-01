@@ -10,7 +10,6 @@ published: true
 themes: [government_finance]
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/m027_001
-  - path: https://t1070170.dupf.jp/ckan/dataset/915034f8-dcad-4c45-a407-841c60045107/resource/0c8886c6-d3fd-436a-bfbf-c0f4e54409d2/download/tohyozyo_list20240702.xlsx
 fields:
   - name: municipality_code
     title: 全国地方公共団体コード

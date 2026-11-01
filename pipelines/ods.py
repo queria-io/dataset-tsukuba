@@ -23,9 +23,13 @@ POLLING_PLACE = "m027_001"
 # 投票所一覧は地区ごとにシートが分かれている。このヘッダーで始まるシートだけを読む
 # （同じブックに行政区と学区の対応表のシートが同居している）
 POLLING_PLACE_HEADER = ["№", "投票区番号", "投票区", "投票所", "投票所住所", "対象地区"]
+# 地区別のシートは 6 枚（2024年7月時点）。1 枚でも様式が変わって読めなくなると、
+# その地区の投票所が黙って抜けるので、下回ったら止める
+MIN_POLLING_PLACE_SHEETS = 6
 
 
 def download_public_wireless_lan(dest: str) -> list[Path]:
+    _clear_csv(Path(dest))
     resources = package_resources(PUBLIC_WIRELESS_LAN, "CSV")
     # 時点の違う CSV が並ぶと同じアクセスポイントが二重に入る。どれを採るかは人が決める
     if len(resources) != 1:
@@ -37,6 +41,7 @@ def download_public_wireless_lan(dest: str) -> list[Path]:
 
 def download_fire_hydrant(dest: str) -> list[Path]:
     # 防火水槽と消火栓が別の CSV で載っている。種別は各 CSV の列が持つ
+    _clear_csv(Path(dest))
     resources = package_resources(FIRE_HYDRANT, "CSV")
     if not resources:
         raise SystemExit("fire_hydrant: CSV が 1 件も無い。上流の構成が変わった")
@@ -57,17 +62,27 @@ def download_polling_place(dest: str, out: str) -> Path:
 
     rows: list[list[str]] = []
     sheets: list[str] = []
-    for ws in load_workbook(xlsx, read_only=True, data_only=True).worksheets:
-        values = list(ws.iter_rows(values_only=True))
-        if not values or [_cell(v) for v in values[0][: len(POLLING_PLACE_HEADER)]] != POLLING_PLACE_HEADER:
-            continue
-        sheets.append(ws.title)
-        for row in values[1:]:
-            cells = [_cell(v) for v in row[: len(POLLING_PLACE_HEADER)]]
-            if any(cells):
-                rows.append([ws.title, *cells])
-    if not sheets:
-        raise SystemExit("polling_place: 投票所のシートが見つからない。上流の様式が変わった")
+    skipped: list[str] = []
+    wb = load_workbook(xlsx, read_only=True, data_only=True)
+    try:
+        for ws in wb.worksheets:
+            values = list(ws.iter_rows(values_only=True))
+            if not values or [_cell(v) for v in values[0][: len(POLLING_PLACE_HEADER)]] != POLLING_PLACE_HEADER:
+                skipped.append(ws.title)
+                continue
+            sheets.append(ws.title)
+            for row in values[1:]:
+                cells = [_cell(v) for v in row[: len(POLLING_PLACE_HEADER)]]
+                if any(cells):
+                    rows.append([ws.title, *cells])
+    finally:
+        wb.close()
+    if skipped:
+        logger.warning("polling_place: 投票所の様式でないシートを読み飛ばした (%s)", "、".join(skipped))
+    if len(sheets) < MIN_POLLING_PLACE_SHEETS:
+        raise SystemExit(
+            f"polling_place: 投票所のシートが {len(sheets)} 枚しかない ({MIN_POLLING_PLACE_SHEETS} 枚のはず)。上流の様式が変わった"
+        )
 
     path = Path(out)
     with path.open("w", encoding="utf-8", newline="") as f:
@@ -76,6 +91,12 @@ def download_polling_place(dest: str, out: str) -> Path:
         writer.writerows(rows)
     logger.info("polling_place: %d シート %d 行 (%s)", len(sheets), len(rows), "、".join(sheets))
     return path
+
+
+def _clear_csv(dest: Path) -> None:
+    """前回の取得で残った CSV を消す。raw は glob で読むので、時点の違うファイルが残ると二重に入る"""
+    for path in dest.glob("*.csv"):
+        path.unlink()
 
 
 def _cell(value: object) -> str:

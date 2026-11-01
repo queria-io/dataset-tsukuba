@@ -10,7 +10,6 @@ published: true
 themes: [ict_science]
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/k006_001
-  - path: https://t1070170.dupf.jp/ckan/dataset/397ce7ea-0337-4ddf-a515-55d2faade8cc/resource/a4b63b5f-914a-4bd4-bde9-264053ccc154/download/public_wireless_lan202412.csv
 fields:
   - name: municipality_code
     title: 全国地方公共団体コード

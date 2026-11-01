@@ -18,8 +18,8 @@ SELECT
          THEN lat_raw END                             AS lat,
     CASE WHEN lat_raw BETWEEN 20.0 AND 46.0 AND lon_raw BETWEEN 122.0 AND 154.5
          THEN lon_raw END                             AS lon,
-    TRY_CAST("管径" AS INTEGER)                       AS diameter,
-    TRY_CAST("容量" AS INTEGER)                       AS capacity,
+    TRY_CAST(REPLACE("管径", ',', '') AS INTEGER)                       AS diameter,
+    TRY_CAST(REPLACE("容量", ',', '') AS DOUBLE)                     AS capacity,
     NULLIF("管轄署所", '')                           AS fire_station,
     NULLIF("公私別区分", '')                         AS ownership
 FROM source

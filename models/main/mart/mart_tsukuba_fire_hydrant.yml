@@ -27,7 +27,7 @@ models:
       - name: diameter
         data_type: INTEGER
       - name: capacity
-        data_type: INTEGER
+        data_type: DOUBLE
       - name: fire_station
         data_type: VARCHAR
       - name: ownership
