@@ -27,3 +27,15 @@ models:
   description: 消防水利をカラム英語化し、緯度経度・口径・容量を数値化したもの
 - name: stg_tsukuba_polling_place
   description: 投票所一覧から合計行を除き、カラム英語化したもの
+- name: stg_tsukuba_care_service
+  description: つくば市 介護保険事業所の元データをカラム英語化したもの
+- name: stg_tsukuba_preschool
+  description: つくば市 子育て施設の元データをカラム英語化したもの
+- name: stg_tsukuba_educational_institution
+  description: つくば市 市立学校の元データをカラム英語化したもの
+- name: stg_tsukuba_bicycle_parking
+  description: つくば市 自転車等駐車場の元データをカラム英語化したもの
+- name: stg_tsukuba_parking
+  description: つくば市 駅前広場駐車場の元データをカラム英語化したもの
+- name: stg_tsukuba_open_data_list
+  description: つくば市 オープンデータ一覧の元データをカラム英語化したもの

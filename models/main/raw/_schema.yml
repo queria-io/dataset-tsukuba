@@ -114,3 +114,21 @@ models:
   description: 消防水利 CSV（CKAN n007_001、防火水槽と消火栓）を縦につないだ生データ
 - name: raw_tsukuba_polling_place
   description: 投票所一覧 XLSX（CKAN m027_001）の地区別シートを縦につないだ生データ
+- name: raw_tsukuba_care_service
+  description: つくば市オープンデータカタログの介護保険事業所一覧 XLSX（o009_001）の生データ
+- name: raw_tsukuba_nursery
+  description: つくば市オープンデータカタログの認可保育所等一覧 XLSX（o019_001）の生データ
+- name: raw_tsukuba_private_kindergarten
+  description: つくば市オープンデータカタログの私立幼稚園・認定こども園一覧 XLSX（l012_001）の生データ
+- name: raw_tsukuba_childcare_support
+  description: つくば市オープンデータカタログの地域子育て支援拠点 XLSX（o014_001）の生データ。出張子育て広場の行を含む
+- name: raw_tsukuba_public_kindergarten
+  description: つくば市オープンデータカタログの市立幼稚園一覧 CSV（sirituyoutien）の生データ
+- name: raw_tsukuba_educational_institution
+  description: つくば市オープンデータカタログの市立小学校・中学校・義務教育学校・幼稚園一覧 XLSX（l010_001）の4シートを縦につないだ生データ
+- name: raw_tsukuba_bicycle_parking
+  description: つくば市オープンデータカタログの自転車等駐車場一覧 XLSX（j008_001）の生データ。工区ごとに1行
+- name: raw_tsukuba_parking
+  description: つくば市オープンデータカタログの駅前広場駐車場一覧 XLSX（j009_001）の生データ
+- name: raw_tsukuba_open_data_list
+  description: つくば市オープンデータカタログのオープンデータ一覧 CSV（m009_001）の生データ
