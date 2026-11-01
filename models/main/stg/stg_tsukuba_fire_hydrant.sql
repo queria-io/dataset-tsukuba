@@ -1,6 +1,6 @@
 {{ config(materialized='view') }}
 
-{# 緯度経度は日本の範囲（緯度 20〜46、経度 122〜154.5）に入るものだけを採る。
+{# 緯度経度は日本の範囲に入るものだけを採る（tsukuba_in_japan）。
    元データには 0.0046, 0.01 のように明らかに座標でない値の行があり、
    そのまま地図に出すと緯度経度 0 の付近に点が立つ #}
 WITH source AS (
@@ -13,7 +13,7 @@ WITH source AS (
 located AS (
     SELECT
         *,
-        lat_raw BETWEEN 20.0 AND 46.0 AND lon_raw BETWEEN 122.0 AND 154.5 AS in_japan
+        {{ tsukuba_in_japan('lat_raw', 'lon_raw') }} AS in_japan
     FROM source
 )
 SELECT

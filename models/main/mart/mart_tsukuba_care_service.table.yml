@@ -1,0 +1,64 @@
+schema: main
+name: mart_tsukuba_care_service
+title: つくば市 介護保険事業所
+description: つくば市が公開する介護保険事業所一覧。1行が事業所とサービスの組で、同じ事業所が複数のサービスを持てば複数行に現れる。事業所名・サービス種類・所在地・電話番号・法人名・介護保険事業所番号・定員・指定年月日を持つ。元データに緯度経度は無い。
+keywords:
+  - 介護
+  - 介護保険
+  - 事業所
+  - 福祉
+  - つくば市
+published: true
+themes:
+  - social_security_health
+sources:
+  - path: https://t1070170.dupf.jp/ckan/dataset/o009_001
+fields:
+  - name: local_government_code
+    title: 全国地方公共団体コード
+    semantic:
+      role: entity
+      name: city
+  - name: facility_id
+    title: ID
+    description: 元データの No.。テーブル内で一意
+  - name: name
+    title: 事業所名
+  - name: service_code
+    title: サービスコード
+  - name: service_type
+    title: サービス種類
+  - name: full_address
+    title: 所在地
+  - name: prefecture
+    title: 都道府県
+  - name: city
+    title: 市区町村
+  - name: postal_code
+    title: 郵便番号
+    semantic:
+      role: entity
+      name: postal_code
+  - name: phone_number
+    title: 電話番号
+  - name: fax_number
+    title: FAX番号
+  - name: corporate_name
+    title: 法人名
+  - name: business_number
+    title: 介護保険事業所番号
+    description: 10桁。元データで先頭の 0 が落ちている番号は 0 を補っている
+  - name: capacity
+    title: 定員
+  - name: preventive_care
+    title: 介護予防
+    description: 元データで 〇 の行が true
+  - name: comprehensive_service
+    title: 総合事業
+    description: 元データで 〇 の行が true
+  - name: service_area
+    title: 圏域
+  - name: designated_date
+    title: 指定年月日
+  - name: deemed_category
+    title: みなし区分

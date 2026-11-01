@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: mart_tsukuba_open_data_list
+    description: つくば市が公開するオープンデータの一覧。1行が1データで、データ名称・分類・掲載ページの URL・ライセンス・最終更新日を持つ。
+    access: public
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: local_government_code
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+      - name: dataset_id
+        data_type: VARCHAR
+      - name: prefecture
+        data_type: VARCHAR
+      - name: city
+        data_type: VARCHAR
+      - name: title
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+      - name: description
+        data_type: VARCHAR
+      - name: file_format
+        data_type: VARCHAR
+      - name: category
+        data_type: VARCHAR
+      - name: update_frequency
+        data_type: VARCHAR
+      - name: url
+        data_type: VARCHAR
+      - name: api_available
+        data_type: VARCHAR
+      - name: license
+        data_type: VARCHAR
+      - name: published_date
+        data_type: DATE
+      - name: last_modified_date
+        data_type: DATE
+      - name: notes
+        data_type: VARCHAR

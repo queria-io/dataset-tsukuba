@@ -1,0 +1,4 @@
+schema: main
+name: raw_tsukuba_parking
+description: つくば市オープンデータカタログの駅前広場駐車場一覧 XLSX（j009_001）の生データ
+published: false
