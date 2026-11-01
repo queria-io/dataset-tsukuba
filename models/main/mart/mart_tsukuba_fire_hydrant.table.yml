@@ -12,8 +12,6 @@ published: true
 themes: [justice_safety_environment]
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/n007_001
-  - path: https://t1070170.dupf.jp/ckan/dataset/cd58b6b8-842b-4f4e-a2e7-464f3cbb0fb6/resource/b56eb7a8-159f-4c69-b187-1af1340f48a0/download/boukasuisou.csv
-  - path: https://t1070170.dupf.jp/ckan/dataset/cd58b6b8-842b-4f4e-a2e7-464f3cbb0fb6/resource/f8ccecd9-6d0f-435b-964e-e269197f2af0/download/shoukasen.csv
 fields:
   - name: municipality_code
     title: 全国地方公共団体コード

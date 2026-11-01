@@ -78,7 +78,7 @@ uv run python scripts/convert_shelter.py \
 - ssid / coverage_area: SSID / 提供エリア
 - url / notes: URL / 備考
 
-`ods.public_wireless_lan` は同じ 33 件を、自治体標準オープンデータセットの定義書どおりの列名・並び（28列）で並べたビューです。
+`ods.public_wireless_lan` は同じ行を、自治体標準オープンデータセットの定義書どおりの列名・並び（28列）で並べたビューです。
 
 ## テーブル: mart_tsukuba_fire_hydrant / ods.fire_hydrant
 
@@ -92,7 +92,7 @@ uv run python scripts/convert_shelter.py \
 - capacity: 容量（防火水槽のみ。単位は元データに書かれていない）
 - fire_station / ownership: 管轄署所 / 公私別区分
 
-`ods.fire_hydrant` は同じ 3,546 件を、定義書どおりの列名・並び（16列）で並べたビューです。容量・管轄署所・公私別区分は定義書に列が無いので含みません。
+`ods.fire_hydrant` は同じ行を、定義書どおりの列名・並び（16列）で並べたビューです。容量・管轄署所・公私別区分は定義書に列が無いので含みません。
 
 ## テーブル: mart_tsukuba_polling_place / ods.polling_place
 
@@ -107,4 +107,4 @@ uv run python scripts/convert_shelter.py \
 - target_areas: 対象地区
 - region: 地区（元のシート名）
 
-`ods.polling_place` は同じ 76 件を、自治体標準オープンデータセットのデータ項目定義書 C「投票所一覧」の列名・並び（31列）で並べたビューです。ID には投票区番号を使います。対象地区は定義書に列が無いので含みません。
+`ods.polling_place` は同じ行を、自治体標準オープンデータセットのデータ項目定義書 C「投票所一覧」の列名・並び（31列）で並べたビューです。ID には投票区番号を使います。対象地区は定義書に列が無いので含みません。
