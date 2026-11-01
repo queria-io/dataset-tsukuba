@@ -58,6 +58,10 @@ fields:
     title: FAX番号
   - name: corporate_name
     title: 団体名
+  - name: corporate_number
+    title: 法人番号
+  - name: authorized_date
+    title: 認可等年月日
   - name: age_range
     title: 受入年齢
     description: 認可保育所等一覧の保育年齢、私立幼稚園等一覧の対象児

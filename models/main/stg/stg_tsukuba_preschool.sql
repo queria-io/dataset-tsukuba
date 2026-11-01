@@ -35,7 +35,9 @@ unioned AS (
         NULLIF("一時預かりの有無", '')               AS temporary_care,
         CAST(NULL AS VARCHAR)                         AS attendance_area,
         NULLIF("URL", '')                            AS url,
-        NULLIF("備考", '')                           AS notes
+        NULLIF("備考", '')                           AS notes,
+        NULLIF("法人番号", '')                       AS corporate_number,
+        NULLIF("認可等年月日", '')                   AS authorized_date
     FROM nursery
 
     UNION ALL
@@ -45,7 +47,7 @@ unioned AS (
         "緯度（世界測地系）", "経度（世界測地系）", NULL, NULL,
         NULLIF("電話番号", ''), NULLIF("FAX番号", ''), NULL, NULLIF("対象児", ''), NULLIF("バス", ''),
         NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-        NULLIF("ホームページ", ''), NULL
+        NULLIF("ホームページ", ''), NULL, NULL, NULL
     FROM {{ ref('raw_tsukuba_private_kindergarten') }} AS k
     WHERE NOT EXISTS (
         SELECT 1 FROM nursery AS n WHERE n."名称" = k."名称" AND n."住所" = k."住所"
@@ -65,7 +67,7 @@ unioned AS (
         CASE WHEN regexp_full_match("実施時間", '\d{1,2}:\d{2}～\d{1,2}:\d{2}')
              THEN lpad(split_part("実施時間", '～', 2), 5, '0') END,
         NULLIF("実施時間", ''),
-        NULL, NULL, NULL, NULL, NULL, NULL
+        NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL
     FROM {{ ref('raw_tsukuba_childcare_support') }}
     WHERE "種別" = '地域子育て支援拠点'
 
@@ -76,7 +78,7 @@ unioned AS (
         TRIM("JGD2011_10進_Y"), TRIM("JGD2011_10進_X"), NULL, NULL,
         NULLIF("電話番号", ''), NULL, NULL, NULL, NULL,
         NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-        NULLIF("通園区域", ''), NULL, NULL
+        NULLIF("通園区域", ''), NULL, NULL, NULL, NULL
     FROM {{ ref('raw_tsukuba_public_kindergarten') }}
     WHERE NULLIF("幼稚園名", '') IS NOT NULL
 )
@@ -98,6 +100,8 @@ SELECT
     phone_number,
     fax_number,
     corporate_name,
+    corporate_number,
+    TRY_CAST(authorized_date AS DATE)                 AS authorized_date,
     age_range,
     school_bus,
     available_days,

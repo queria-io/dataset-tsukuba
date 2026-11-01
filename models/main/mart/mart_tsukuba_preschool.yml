@@ -48,6 +48,10 @@ models:
         data_type: VARCHAR
       - name: corporate_name
         data_type: VARCHAR
+      - name: corporate_number
+        data_type: VARCHAR
+      - name: authorized_date
+        data_type: DATE
       - name: age_range
         data_type: VARCHAR
       - name: school_bus

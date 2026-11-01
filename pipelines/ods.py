@@ -134,7 +134,7 @@ def download_educational_institution(dest: str, out: str) -> Path:
     return download_xlsx(
         SCHOOL, dest, out,
         layouts=[[h] for h in SCHOOL_HEADERS],
-        columns=["学校名", "所在地", "電話番号", "通学区域"],
+        columns=SCHOOL_HEADERS[0],
         min_sheets=SCHOOL_SHEETS,
     )
 
@@ -182,13 +182,17 @@ def download_xlsx(
     """XLSX が 1 本だけ載っているデータセットを取得し、表のシートを縦につないだ CSV を `out` に書く。
 
     `layouts` はシートの先頭の見出し行の並び（1 行とは限らない）の候補で、どれかに一致した
-    シートだけを読む。見出しの下の行を `columns` の列名で書き出し、1 列目には元のシート名を入れる。
+    シートだけを読む。見出しの下の行を `columns` の列名で書き出す。1 列目には元のシート名、
+    2 列目「行」にはブックの中での通し番号（1 始まり）を入れる。
     一致したシートが `min_sheets` に届かなければ、上流の様式が変わったとして止める。
+
+    XLSX は `dest` の下のデータセット ID のディレクトリに置く。`download` は既にあるファイルを
+    取り直さないので、別のデータセットに同じ名前の XLSX があると取り違える。
     """
     resources = package_resources(package_id, "XLSX")
     if len(resources) != 1:
         raise SystemExit(f"{package_id}: XLSX が {len(resources)} 件ある (1 件のはず)。上流の構成が変わった")
-    (xlsx,) = download(resources, Path(dest))
+    (xlsx,) = download(resources, Path(dest) / package_id)
 
     width = len(columns)
     rows: list[list[str]] = []
