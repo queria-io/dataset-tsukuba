@@ -9,8 +9,7 @@ keywords:
   - 防火水槽
   - 防災
   - つくば市
-published: true
-themes: [justice_safety_environment]
+extensions: { queria: { themes: [justice_safety_environment] } }
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/n007_001
 fields:

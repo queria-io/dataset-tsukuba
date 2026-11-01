@@ -1,7 +1,6 @@
 schema: main
 name: stg_tsukuba_emergency_shelter_20241201
 description: つくば市指定緊急避難場所（2024年12月時点）をカラム英語化・フラグBOOLEAN化して正規化
-published: false
 fields:
   - name: lg_code
     title: 全国地方公共団体コード

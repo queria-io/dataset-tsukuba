@@ -9,9 +9,7 @@ keywords:
   - 事業所
   - 福祉
   - つくば市
-published: true
-themes:
-  - social_security_health
+extensions: { queria: { themes: [social_security_health] } }
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/o009_001
 fields:

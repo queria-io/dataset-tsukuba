@@ -8,9 +8,7 @@ keywords:
   - 幼稚園
   - 認定こども園
   - つくば市
-published: true
-themes:
-  - education_culture
+extensions: { queria: { themes: [education_culture] } }
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/o019_001
   - path: https://t1070170.dupf.jp/ckan/dataset/l012_001
@@ -19,9 +17,7 @@ sources:
 fields:
   - name: local_government_code
     title: 全国地方公共団体コード
-    semantic:
-      role: entity
-      name: city
+    extensions: { queria: { semantic: {name: city, role: entity} } }
   - name: source_dataset
     title: 元の一覧
     description: CKAN のデータセット ID（o019_001=認可保育所等一覧、l012_001=私立幼稚園・認定こども園一覧、sirituyoutien=市立幼稚園一覧、o014_001=地域子育て支援拠点）
@@ -60,7 +56,7 @@ fields:
     title: 団体名
   - name: legal_entity_number
     title: 法人番号
-    semantic: { role: entity, name: corporate_number }
+    extensions: { queria: { semantic: { role: entity, name: corporate_number } } }
   - name: authorized_date
     title: 認可等年月日
   - name: age_range

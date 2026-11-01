@@ -6,14 +6,13 @@ keywords:
   - 選挙
   - 投票所
   - つくば市
-published: true
-themes: [government_finance]
+extensions: { queria: { themes: [government_finance] } }
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/m027_001
 fields:
   - name: local_government_code
     title: 全国地方公共団体コード
-    semantic: { role: entity, name: city }
+    extensions: { queria: { semantic: { role: entity, name: city } } }
   - name: voting_district_number
     title: 投票区番号
     description: テーブル内で一意。百の位が地区（1=筑波、2=大穂、3=豊里、4=谷田部、5=桜、6=茎崎）

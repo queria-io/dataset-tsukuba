@@ -7,8 +7,7 @@ keywords:
   - 公衆無線LAN
   - Wi-Fi
   - つくば市
-published: true
-themes: [ict_science]
+extensions: { queria: { themes: [ict_science] } }
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/k006_001
 fields:

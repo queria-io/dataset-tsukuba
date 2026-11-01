@@ -1,4 +1,3 @@
 schema: main
 name: raw_tsukuba_public_kindergarten
 description: つくば市オープンデータカタログの市立幼稚園一覧 CSV（sirituyoutien）の生データ
-published: false

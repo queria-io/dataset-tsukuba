@@ -10,9 +10,7 @@ keywords:
   - 義務教育学校
   - 通学区域
   - つくば市
-published: true
-themes:
-  - education_culture
+extensions: { queria: { themes: [education_culture] } }
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/l010_001
 fields:

@@ -1,4 +1,3 @@
 schema: main
 name: stg_tsukuba_preschool
 description: つくば市 子育て施設の元データをカラム英語化したもの
-published: false
