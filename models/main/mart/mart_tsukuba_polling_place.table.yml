@@ -1,0 +1,41 @@
+schema: main
+name: mart_tsukuba_polling_place
+title: つくば市 投票所
+description: つくば市が公開する投票所一覧。1行が1投票区の投票所で、投票区名・投票所の名称と所在地・対象となる地区を持つ。期日前投票所は含まない。元データに緯度経度は無い。
+keywords:
+  - 選挙
+  - 投票所
+  - つくば市
+published: true
+themes: [government_finance]
+sources:
+  - path: https://t1070170.dupf.jp/ckan/dataset/m027_001
+  - path: https://t1070170.dupf.jp/ckan/dataset/915034f8-dcad-4c45-a407-841c60045107/resource/0c8886c6-d3fd-436a-bfbf-c0f4e54409d2/download/tohyozyo_list20240702.xlsx
+fields:
+  - name: municipality_code
+    title: 全国地方公共団体コード
+    semantic: { role: entity, name: city }
+  - name: voting_district_number
+    title: 投票区番号
+    description: テーブル内で一意。百の位が地区（1=筑波、2=大穂、3=豊里、4=谷田部、5=桜、6=茎崎）
+  - name: name
+    title: 名称
+    description: 投票所の名称
+  - name: address
+    title: 所在地
+    description: 元データは市内の番地だけなので、「茨城県つくば市」を前に付けている
+  - name: prefecture
+    title: 都道府県
+  - name: city
+    title: 市区町村
+  - name: polling_place_type
+    title: 投票所区分
+    description: 投票所 で固定。期日前投票所は元データに無い
+  - name: voting_district
+    title: 投票区名
+  - name: target_areas
+    title: 対象地区
+    description: その投票所で投票する地区。元データのセル内の改行を残している
+  - name: region
+    title: 地区
+    description: 元データのシート名（筑波地区・大穂地区など）

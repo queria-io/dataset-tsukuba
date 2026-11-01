@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: mart_tsukuba_polling_place
+    description: つくば市が公開する投票所一覧。1行が1投票区の投票所。
+    access: public
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: municipality_code
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+      - name: voting_district_number
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+        data_tests:
+          - unique
+      - name: name
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+      - name: address
+        data_type: VARCHAR
+      - name: prefecture
+        data_type: VARCHAR
+      - name: city
+        data_type: VARCHAR
+      - name: polling_place_type
+        data_type: VARCHAR
+      - name: voting_district
+        data_type: VARCHAR
+      - name: target_areas
+        data_type: VARCHAR
+      - name: region
+        data_type: VARCHAR
