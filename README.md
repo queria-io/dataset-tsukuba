@@ -12,7 +12,7 @@
 
 すべての時点に同じ地区が揃っているわけではありません。新しい住宅地は途中から現れ、古い地区は途中で消えることがあります。地区を跨いで比べるときは同じ `reference_date` で揃えてください。
 
-- lg_code: 全国地方公共団体コード
+- local_government_code: 全国地方公共団体コード（同じ値の lg_code は非推奨）
 - area_code / area_name: 地域コード / 地域名
 - reference_date: 調査年月日
 - sex: 性別（male / female）
@@ -23,9 +23,10 @@
 
 つくば市の指定緊急避難場所の一覧です。公式 CSV を自治体標準オープンデータセット（ODF）形式に整形し、住所正規化で緯度経度を補完しています。
 
+- local_government_code: 全国地方公共団体コード（同じ値の lg_code は非推奨）
 - shelter_id: 避難場所 ID
-- name / address: 名称 / 所在地
-- pref / city / town / addr_detail: 正規化後の住所要素
+- name / full_address: 名称 / 所在地（同じ値の address は非推奨）
+- prefecture / city / town / addr_detail: 正規化後の住所要素（同じ値の pref は非推奨）
 - latitude / longitude: 緯度・経度（Geolonia でジオコーディング）
 - flood / landslide / storm_surge / earthquake / tsunami / large_fire / inland_flooding / volcanic: 災害種別の対応フラグ
 - url: 出典ページ URL
