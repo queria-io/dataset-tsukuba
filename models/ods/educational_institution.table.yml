@@ -1,0 +1,41 @@
+schema: ods
+name: educational_institution
+title: つくば市 教育機関一覧（標準形式）
+description: つくば市の市立小学校・中学校・義務教育学校・幼稚園の一覧を、デジタル庁「自治体標準オープンデータセット」の教育機関一覧（データ項目定義書 C）の列名・並びで並べたもの。CSV や Excel でダウンロードすれば、そのまま標準形式のファイルとして使える。中身は main.mart_tsukuba_educational_institution と同じ行で、SQL で使うときは英語の列名のそちらが扱いやすい。学校コードは市の一覧に無いので空欄。設置区分は 2（公立）、設置者情報は つくば市。通学区域は定義書に列が無いので出さない。
+keywords:
+  - 自治体標準オープンデータセット
+  - 学校
+  - 小学校
+  - 中学校
+  - 義務教育学校
+  - 通学区域
+  - つくば市
+published: true
+themes:
+  - education_culture
+sources:
+  - path: https://t1070170.dupf.jp/ckan/dataset/l010_001
+fields:
+  - name: 学校コード
+  - name: 学校種
+  - name: 都道府県番号
+  - name: 設置区分
+  - name: 設置者情報
+  - name: 本分校
+  - name: 本校学校コード
+  - name: 本校学校名
+  - name: 学校名
+  - name: 学校名カナ表記
+  - name: 学校略称
+  - name: 教育機関_学校所在地_市区町村
+  - name: 教育機関_学校所在地_町字
+  - name: 教育機関_学校所在地_番地以下
+  - name: 郵便番号
+  - name: 緯度
+  - name: 経度
+  - name: 連絡先名称
+  - name: 連絡先電話番号
+  - name: 属性情報設定年月日
+  - name: 属性情報廃止年月日
+  - name: 旧学校調査番号
+  - name: 移行後の学校コード

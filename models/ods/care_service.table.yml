@@ -1,0 +1,53 @@
+schema: ods
+name: care_service
+title: つくば市 介護サービス事業所一覧（標準形式）
+description: つくば市の介護保険事業所一覧を、デジタル庁「自治体標準オープンデータセット」の介護サービス事業所一覧（データ項目定義書 A）の列名・並びで並べたもの。CSV や Excel でダウンロードすれば、そのまま標準形式のファイルとして使える。中身は main.mart_tsukuba_care_service と同じ行で、SQL で使うときは英語の列名のそちらが扱いやすい。市の一覧に無い項目（カナ・英字・緯度経度・法人番号・利用可能曜日など）は空欄。実施サービスは市の一覧のサービス種類の書き方のまま。
+keywords:
+  - 自治体標準オープンデータセット
+  - 介護
+  - 介護保険
+  - 事業所
+  - 福祉
+  - つくば市
+published: true
+themes:
+  - social_security_health
+sources:
+  - path: https://t1070170.dupf.jp/ckan/dataset/o009_001
+fields:
+  - name: 全国地方公共団体コード
+  - name: ID
+  - name: 地方公共団体名
+  - name: 介護サービス事業所名称
+  - name: 介護サービス事業所名称_カナ
+  - name: 介護サービス事業所名称_英字
+  - name: 実施サービス
+  - name: 所在地_全国地方公共団体コード
+  - name: 町字ID
+  - name: 所在地_連結表記
+  - name: 所在地_都道府県
+  - name: 所在地_市区町村
+  - name: 所在地_町字
+  - name: 所在地_番地以下
+  - name: 建物名等(方書)
+  - name: 緯度
+  - name: 経度
+  - name: 高度の種別
+  - name: 高度の値
+  - name: 電話番号
+  - name: 内線番号
+  - name: FAX番号
+  - name: 連絡先メールアドレス
+  - name: 連絡先FormURL
+  - name: 連絡先備考（その他、SNSなど）
+  - name: 郵便番号
+  - name: 法人番号
+  - name: 法人の名称
+  - name: 事業所番号
+  - name: 利用可能曜日
+  - name: 利用可能曜日特記事項
+  - name: 定員
+  - name: URL
+  - name: 画像
+  - name: 画像_ライセンス
+  - name: 備考

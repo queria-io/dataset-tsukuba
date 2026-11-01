@@ -1,0 +1,53 @@
+{{ config(materialized='view') }}
+
+{# 自治体標準オープンデータセット「オープンデータ一覧」（データ項目定義書 A の 06）の定義書どおりの
+   列名・並びで出す。Queria からこのまま CSV / Excel でダウンロードすれば納品物になる。
+   データセット_ID とファイルの項目は市の一覧に無いので空欄。データ形式はファイル形式、ライセンスと API 対応有無はファイルの項目に入れている #}
+SELECT
+    CAST(NULL AS VARCHAR)                              AS "データセット_ID",
+    local_government_code                                  AS "全国地方公共団体コード",
+    prefecture || city                                 AS "地方公共団体名",
+    title                                              AS "データセット_タイトル",
+    CAST(NULL AS VARCHAR)                              AS "データセット_サブタイトル",
+    description                                        AS "データセット_概要",
+    CAST(NULL AS VARCHAR)                              AS "データセット_キーワード",
+    category                                           AS "データセット_分類",
+    CAST(NULL AS VARCHAR)                              AS "データセット_ユニバーサルメニュー",
+    published_date                                     AS "データセット_公開日",
+    last_modified_date                                 AS "データセット_最終更新日",
+    CAST(NULL AS VARCHAR)                              AS "データセット_バージョン",
+    CAST(NULL AS VARCHAR)                              AS "データセット_言語",
+    url                                                AS "データセット_URL",
+    update_frequency                                   AS "データセット_更新頻度",
+    CAST(NULL AS VARCHAR)                              AS "データセット_準拠する標準",
+    CAST(NULL AS VARCHAR)                              AS "データセット_関連ドキュメント",
+    CAST(NULL AS VARCHAR)                              AS "データセット_来歴情報",
+    CAST(NULL AS VARCHAR)                              AS "データセット_対象地域",
+    CAST(NULL AS VARCHAR)                              AS "データセット_対象期間",
+    CAST(NULL AS VARCHAR)                              AS "データセット_作成者",
+    CAST(NULL AS VARCHAR)                              AS "データセット_連絡先名称",
+    CAST(NULL AS VARCHAR)                              AS "データセット_連絡先メールアドレス",
+    CAST(NULL AS VARCHAR)                              AS "データセット_連絡先電話番号",
+    CAST(NULL AS VARCHAR)                              AS "データセット_連絡先内線番号",
+    CAST(NULL AS VARCHAR)                              AS "データセット_連絡先FormURL",
+    CAST(NULL AS VARCHAR)                              AS "データセット_連絡先備考（その他、SNSなど）",
+    notes                                              AS "データセット_備考",
+    CAST(NULL AS VARCHAR)                              AS "ファイル_ID",
+    CAST(NULL AS VARCHAR)                              AS "ファイル_タイトル",
+    CAST(NULL AS VARCHAR)                              AS "ファイル_アクセスURL",
+    CAST(NULL AS VARCHAR)                              AS "ファイル_ダウンロードURL",
+    CAST(NULL AS VARCHAR)                              AS "ファイル_説明",
+    file_format                                        AS "ファイル形式",
+    license                                            AS "ファイル_ライセンス",
+    CAST(NULL AS VARCHAR)                              AS "ファイル_ステータス",
+    CAST(NULL AS VARCHAR)                              AS "ファイル_サイズ",
+    CAST(NULL AS VARCHAR)                              AS "ファイル_公開日",
+    CAST(NULL AS VARCHAR)                              AS "ファイル_最終更新日",
+    CAST(NULL AS VARCHAR)                              AS "ファイル_利用規約",
+    CAST(NULL AS VARCHAR)                              AS "ファイル_関連ドキュメント",
+    CAST(NULL AS VARCHAR)                              AS "ファイル_言語",
+    CAST(NULL AS VARCHAR)                              AS "ファイル_準拠する標準",
+    api_available                                      AS "ファイル_API対応有無",
+    CAST(NULL AS VARCHAR)                              AS "ファイル_著作権表記"
+FROM {{ ref('mart_tsukuba_open_data_list') }}
+ORDER BY last_modified_date DESC, title
