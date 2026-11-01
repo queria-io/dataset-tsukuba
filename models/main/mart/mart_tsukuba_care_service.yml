@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: mart_tsukuba_care_service
+    description: つくば市が公開する介護保険事業所一覧。1行が事業所とサービスの組で、同じ事業所が複数のサービスを持てば複数行に現れる。事業所名・サービス種類・所在地・電話番号・法人名・介護保険事業所番号・定員・指定年月日を持つ。元データに緯度経度は無い。
+    access: public
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: municipality_code
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+      - name: facility_id
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+        data_tests:
+          - unique
+      - name: name
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+      - name: service_code
+        data_type: VARCHAR
+      - name: service_type
+        data_type: VARCHAR
+      - name: address
+        data_type: VARCHAR
+      - name: prefecture
+        data_type: VARCHAR
+      - name: city
+        data_type: VARCHAR
+      - name: postal_code
+        data_type: VARCHAR
+      - name: phone_number
+        data_type: VARCHAR
+      - name: fax_number
+        data_type: VARCHAR
+      - name: corporate_name
+        data_type: VARCHAR
+      - name: business_number
+        data_type: VARCHAR
+      - name: capacity
+        data_type: INTEGER
+      - name: preventive_care
+        data_type: BOOLEAN
+      - name: comprehensive_service
+        data_type: BOOLEAN
+      - name: service_area
+        data_type: VARCHAR
+      - name: designated_date
+        data_type: DATE
+      - name: deemed_category
+        data_type: VARCHAR
