@@ -1,0 +1,42 @@
+schema: main
+name: mart_tsukuba_fire_hydrant
+title: つくば市 消防水利
+description: つくば市が公開する消防水利の一覧。防火水槽と消火栓を1つの表にまとめ、種別（facility_type）で区別する。1行が1水利で、緯度経度・管轄署所・公私別区分に加え、消火栓は管径（diameter）、防火水槽は容量（capacity）を持つ。住所は元データに無い。
+keywords:
+  - 消防水利
+  - 消火栓
+  - 防火水槽
+  - 防災
+  - つくば市
+published: true
+themes: [justice_safety_environment]
+sources:
+  - path: https://t1070170.dupf.jp/ckan/dataset/n007_001
+  - path: https://t1070170.dupf.jp/ckan/dataset/cd58b6b8-842b-4f4e-a2e7-464f3cbb0fb6/resource/b56eb7a8-159f-4c69-b187-1af1340f48a0/download/boukasuisou.csv
+  - path: https://t1070170.dupf.jp/ckan/dataset/cd58b6b8-842b-4f4e-a2e7-464f3cbb0fb6/resource/f8ccecd9-6d0f-435b-964e-e269197f2af0/download/shoukasen.csv
+fields:
+  - name: municipality_code
+    title: 全国地方公共団体コード
+    semantic: { role: entity, name: city }
+  - name: facility_id
+    title: ID
+    description: 元データの支援系水利番号（「茎栓001」など）。防火水槽に同じ番号の行が1組ある
+  - name: facility_type
+    title: 種別
+    description: 消火栓 / 防火水槽
+  - name: lat
+    title: 緯度
+    description: 日本の範囲に入らない値は NULL にしている
+  - name: lon
+    title: 経度
+    description: 日本の範囲に入らない値は NULL にしている
+  - name: diameter
+    title: 口径
+    description: 消火栓の管径（ミリメートル）。防火水槽は NULL
+  - name: capacity
+    title: 容量
+    description: 防火水槽の容量。単位は元データに書かれていない。消火栓は NULL
+  - name: fire_station
+    title: 管轄署所
+  - name: ownership
+    title: 公私別区分
