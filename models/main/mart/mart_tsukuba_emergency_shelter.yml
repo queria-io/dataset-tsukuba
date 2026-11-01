@@ -86,3 +86,11 @@ models:
         data_type: VARCHAR
       - name: note
         data_type: VARCHAR
+      - name: local_government_code
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+      - name: full_address
+        data_type: VARCHAR
+      - name: prefecture
+        data_type: VARCHAR
