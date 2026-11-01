@@ -31,3 +31,5 @@ models:
         +materialized: view
       mart:
         +materialized: view
+    ods:
+      +materialized: view

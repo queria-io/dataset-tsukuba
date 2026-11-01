@@ -55,3 +55,6 @@ ai_context:
 schemas:
   - name: main
     title: メイン
+  - name: ods
+    title: 自治体標準オープンデータセット
+    description: デジタル庁のデータセット定義書どおりの列名・並び・書き方で並べたビュー。CSV や Excel でダウンロードすれば、そのまま標準形式のファイルとして使える

@@ -58,3 +58,9 @@ uv run python scripts/convert_shelter.py \
 ## ライセンス
 
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+## テーブル: ods.evacuation_space
+
+つくば市の指定緊急避難場所を、デジタル庁「自治体標準オープンデータセット」の指定緊急避難場所一覧の定義書どおりの列名（日本語）・並び・書き方で並べたビューです。Queria から CSV や Excel でダウンロードすれば、そのまま標準形式のファイルとして使えます。
+
+中身は `mart_tsukuba_emergency_shelter` と同じ 11 件です。SQL や地図で使うときは、英語の列名を持つそちらが扱いやすいです。
