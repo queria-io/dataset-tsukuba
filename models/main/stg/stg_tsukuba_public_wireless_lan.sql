@@ -1,12 +1,12 @@
 {{ config(materialized='view') }}
 
 SELECT
-    "都道府県コード又は市区町村コード"              AS municipality_code,
+    "都道府県コード又は市区町村コード"              AS local_government_code,
     "番号"                                            AS facility_id,
     "名称"                                            AS name,
     NULLIF("名称_カナ", '')                          AS name_kana,
     NULLIF("名称_英語", '')                          AS name_en,
-    "住所"                                            AS address,
+    "住所"                                            AS full_address,
     "都道府県名"                                      AS prefecture,
     "市区町村名"                                      AS city,
     NULLIF("方書", '')                               AS building_name,

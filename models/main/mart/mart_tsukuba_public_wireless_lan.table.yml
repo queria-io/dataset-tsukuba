@@ -11,7 +11,7 @@ themes: [ict_science]
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/k006_001
 fields:
-  - name: municipality_code
+  - name: local_government_code
     title: 全国地方公共団体コード
     semantic: { role: entity, name: city }
   - name: facility_id
@@ -24,7 +24,7 @@ fields:
     title: 名称（カナ）
   - name: name_en
     title: 名称（英語）
-  - name: address
+  - name: full_address
     title: 所在地
     description: 市が公開した表記のまま。都道府県から書いていない行がある
   - name: prefecture

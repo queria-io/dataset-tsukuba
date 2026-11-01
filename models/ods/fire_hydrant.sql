@@ -5,7 +5,7 @@
    市の CSV は住所を持たないので所在地の列は空欄。口径は消火栓の管径で、防火水槽は空欄。
    防火水槽の容量・管轄署所・公私別区分は定義書に列が無いので出さない #}
 SELECT
-    municipality_code                                 AS "全国地方公共団体コード",
+    local_government_code                                 AS "全国地方公共団体コード",
     facility_id                                       AS "ID",
     '茨城県つくば市'                                  AS "地方公共団体名",
     facility_type                                     AS "種別",
@@ -17,8 +17,8 @@ SELECT
     CAST(NULL AS VARCHAR)                             AS "所在地_町字",
     CAST(NULL AS VARCHAR)                             AS "所在地_番地以下",
     CAST(NULL AS VARCHAR)                             AS "建物名等(方書)",
-    lat                                               AS "緯度",
-    lon                                               AS "経度",
+    latitude                                               AS "緯度",
+    longitude                                               AS "経度",
     diameter                                          AS "口径",
     CAST(NULL AS VARCHAR)                             AS "備考"
 FROM {{ ref('mart_tsukuba_fire_hydrant') }}

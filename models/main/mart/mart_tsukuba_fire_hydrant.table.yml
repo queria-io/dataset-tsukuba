@@ -13,7 +13,7 @@ themes: [justice_safety_environment]
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/n007_001
 fields:
-  - name: municipality_code
+  - name: local_government_code
     title: 全国地方公共団体コード
     semantic: { role: entity, name: city }
   - name: facility_id
@@ -22,10 +22,10 @@ fields:
   - name: facility_type
     title: 種別
     description: 消火栓 / 防火水槽
-  - name: lat
+  - name: latitude
     title: 緯度
     description: 日本の範囲に入らない値は NULL にしている
-  - name: lon
+  - name: longitude
     title: 経度
     description: 日本の範囲に入らない値は NULL にしている
   - name: diameter

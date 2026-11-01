@@ -69,10 +69,10 @@ uv run python scripts/convert_shelter.py \
 
 つくば市の公衆無線LANアクセスポイント一覧です（CKAN `k006_001`）。1行が設置場所と SSID の組で、同じ施設に SSID が複数あれば施設は複数行に現れます。元データに緯度経度はありません。
 
-- municipality_code: 全国地方公共団体コード
+- local_government_code: 全国地方公共団体コード
 - facility_id: ID（市が付けた番号）
 - name / name_kana / name_en: 名称 / カナ / 英語
-- address / prefecture / city / building_name: 所在地 / 都道府県 / 市区町村 / 方書
+- full_address / prefecture / city / building_name: 所在地 / 都道府県 / 市区町村 / 方書
 - installer: 設置者
 - phone_number / phone_ext: 電話番号 / 内線番号
 - ssid / coverage_area: SSID / 提供エリア
@@ -84,10 +84,10 @@ uv run python scripts/convert_shelter.py \
 
 つくば市の消防水利の一覧です（CKAN `n007_001`）。防火水槽と消火栓の CSV 2本を1つの表にまとめ、種別で分けています。住所はありません。
 
-- municipality_code: 全国地方公共団体コード
+- local_government_code: 全国地方公共団体コード
 - facility_id: ID（支援系水利番号）
 - facility_type: 種別（消火栓 / 防火水槽）
-- lat / lon: 緯度 / 経度（日本の範囲に入らない値は NULL）
+- latitude / longitude: 緯度 / 経度（日本の範囲に入らない値は NULL）
 - diameter: 口径（消火栓の管径、ミリメートル）
 - capacity: 容量（防火水槽のみ。単位は元データに書かれていない）
 - fire_station / ownership: 管轄署所 / 公私別区分
@@ -98,9 +98,9 @@ uv run python scripts/convert_shelter.py \
 
 つくば市の投票所一覧です（CKAN `m027_001`）。地区別に分かれたシートを1つの表にまとめています。期日前投票所と緯度経度は元データにありません。
 
-- municipality_code: 全国地方公共団体コード
+- local_government_code: 全国地方公共団体コード
 - voting_district_number: 投票区番号
-- name / address: 名称 / 所在地（「茨城県つくば市」を前に付けている）
+- name / full_address: 名称 / 所在地（「茨城県つくば市」を前に付けている）
 - prefecture / city: 都道府県 / 市区町村
 - polling_place_type: 投票所区分（投票所）
 - voting_district: 投票区名
