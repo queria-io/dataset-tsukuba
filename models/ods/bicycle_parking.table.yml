@@ -8,9 +8,7 @@ keywords:
   - 自転車
   - つくばエクスプレス
   - つくば市
-published: true
-themes:
-  - transport_tourism
+extensions: { queria: { themes: [transport_tourism] } }
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/j008_001
 fields:

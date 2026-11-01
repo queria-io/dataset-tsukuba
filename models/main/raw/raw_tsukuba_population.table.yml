@@ -1,7 +1,6 @@
 schema: main
 name: raw_tsukuba_population
 description: 地域・年齢別人口の生データ。CKAN に載っている全時点をまとめて読み込んだもの
-published: false
 fields:
   - name: 全国地方公共団体コード
     description: 全国地方公共団体コード

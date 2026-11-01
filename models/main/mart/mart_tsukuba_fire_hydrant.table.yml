@@ -8,14 +8,13 @@ keywords:
   - 防火水槽
   - 防災
   - つくば市
-published: true
-themes: [justice_safety_environment]
+extensions: { queria: { themes: [justice_safety_environment] } }
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/n007_001
 fields:
   - name: local_government_code
     title: 全国地方公共団体コード
-    semantic: { role: entity, name: city }
+    extensions: { queria: { semantic: { role: entity, name: city } } }
   - name: facility_id
     title: ID
     description: 元データの支援系水利番号（「茎栓001」など）。防火水槽に同じ番号の行が1組ある

@@ -1,4 +1,3 @@
 schema: main
 name: stg_tsukuba_fire_hydrant
 description: つくば市の消防水利（防火水槽・消火栓）をカラム英語化し、緯度経度と口径・容量を数値化したもの
-published: false
