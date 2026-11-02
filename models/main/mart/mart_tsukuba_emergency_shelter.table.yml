@@ -6,7 +6,7 @@ keywords:
   - 防災
   - 指定緊急避難場所
   - つくば市
-extensions: { queria: { themes: [justice_safety_environment] } }
+annotations: { queria: { themes: [justice_safety_environment] } }
 sources:
   - path: https://www.city.tsukuba.lg.jp/soshikikarasagasu/shichokoshitsukikikanrika/gyomuannai/1/2/1000608.html
   - path: https://www.city.tsukuba.lg.jp/material/files/group/4/202412hinannbasyo.csv
@@ -14,7 +14,7 @@ fields:
   - name: lg_code
     title: 全国地方公共団体コード
     description: 非推奨。local_government_code を使う
-    extensions: { queria: { semantic: { role: dimension } } }
+    annotations: { queria: { semantic: { role: dimension } } }
   - name: shelter_id
     title: 避難場所ID
   - name: name
@@ -26,11 +26,11 @@ fields:
   - name: address
     title: 所在地（連結表記）
     description: 非推奨。full_address を使う
-    extensions: { queria: { semantic: { role: dimension } } }
+    annotations: { queria: { semantic: { role: dimension } } }
   - name: pref
     title: 都道府県
     description: 非推奨。prefecture を使う
-    extensions: { queria: { semantic: { role: dimension } } }
+    annotations: { queria: { semantic: { role: dimension } } }
   - name: city
     title: 市区町村
   - name: town
@@ -57,7 +57,7 @@ fields:
     title: 連絡先備考
   - name: postal_code
     title: 郵便番号
-    extensions: { queria: { semantic: { role: entity, name: postal_code } } }
+    annotations: { queria: { semantic: { role: entity, name: postal_code } } }
   - name: lg_name
     title: 地方公共団体名
   - name: flood
@@ -92,7 +92,7 @@ fields:
     title: 備考
   - name: local_government_code
     title: 全国地方公共団体コード
-    extensions: { queria: { semantic: { role: entity, name: city } } }
+    annotations: { queria: { semantic: { role: entity, name: city } } }
   - name: full_address
     title: 所在地（連結表記）
   - name: prefecture

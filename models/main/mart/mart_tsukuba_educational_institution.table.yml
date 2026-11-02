@@ -9,13 +9,13 @@ keywords:
   - 義務教育学校
   - 通学区域
   - つくば市
-extensions: { queria: { themes: [education_culture] } }
+annotations: { queria: { themes: [education_culture] } }
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/l010_001
 fields:
   - name: local_government_code
     title: 全国地方公共団体コード
-    extensions: { queria: { semantic: {name: city, role: entity} } }
+    annotations: { queria: { semantic: {name: city, role: entity} } }
   - name: school_type
     title: 学校種
     description: 定義書の学校種コード（A1=幼稚園、B1=小学校、C1=中学校、C2=義務教育学校）

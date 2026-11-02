@@ -7,13 +7,13 @@ keywords:
   - 自転車
   - つくばエクスプレス
   - つくば市
-extensions: { queria: { themes: [transport_tourism] } }
+annotations: { queria: { themes: [transport_tourism] } }
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/j008_001
 fields:
   - name: local_government_code
     title: 全国地方公共団体コード
-    extensions: { queria: { semantic: {name: city, role: entity} } }
+    annotations: { queria: { semantic: {name: city, role: entity} } }
   - name: facility_id
     title: ID
     description: 元データの No.。工区をまとめたあとはテーブル内で一意
