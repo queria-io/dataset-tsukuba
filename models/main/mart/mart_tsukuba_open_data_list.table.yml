@@ -6,13 +6,13 @@ keywords:
   - オープンデータ
   - カタログ
   - つくば市
-extensions: { queria: { themes: [government_finance] } }
+annotations: { queria: { themes: [government_finance] } }
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/m009_001
 fields:
   - name: local_government_code
     title: 全国地方公共団体コード
-    extensions: { queria: { semantic: {name: city, role: entity} } }
+    annotations: { queria: { semantic: {name: city, role: entity} } }
   - name: dataset_id
     title: 'NO'
     description: 元データでは空欄

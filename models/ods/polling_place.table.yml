@@ -7,7 +7,7 @@ keywords:
   - 投票所
   - 選挙
   - つくば市
-extensions: { queria: { themes: [government_finance] } }
+annotations: { queria: { themes: [government_finance] } }
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/m027_001
 fields:

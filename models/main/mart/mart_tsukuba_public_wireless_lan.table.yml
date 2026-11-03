@@ -6,13 +6,13 @@ keywords:
   - 公衆無線LAN
   - Wi-Fi
   - つくば市
-extensions: { queria: { themes: [ict_science] } }
+annotations: { queria: { themes: [ict_science] } }
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/k006_001
 fields:
   - name: local_government_code
     title: 全国地方公共団体コード
-    extensions: { queria: { semantic: { role: entity, name: city } } }
+    annotations: { queria: { semantic: { role: entity, name: city } } }
   - name: facility_id
     title: ID
     description: 市が付けた番号。テーブル内で一意

@@ -8,13 +8,13 @@ keywords:
   - 事業所
   - 福祉
   - つくば市
-extensions: { queria: { themes: [social_security_health] } }
+annotations: { queria: { themes: [social_security_health] } }
 sources:
   - path: https://t1070170.dupf.jp/ckan/dataset/o009_001
 fields:
   - name: local_government_code
     title: 全国地方公共団体コード
-    extensions: { queria: { semantic: {name: city, role: entity} } }
+    annotations: { queria: { semantic: {name: city, role: entity} } }
   - name: facility_id
     title: ID
     description: 元データの No.。テーブル内で一意
@@ -32,7 +32,7 @@ fields:
     title: 市区町村
   - name: postal_code
     title: 郵便番号
-    extensions: { queria: { semantic: {name: postal_code, role: entity} } }
+    annotations: { queria: { semantic: {name: postal_code, role: entity} } }
   - name: phone_number
     title: 電話番号
   - name: fax_number

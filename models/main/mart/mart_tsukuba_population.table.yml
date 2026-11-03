@@ -6,14 +6,14 @@ keywords:
   - 人口
   - つくば市
   - 統計
-extensions: { queria: { themes: [population] } }
+annotations: { queria: { themes: [population] } }
 sources:
   - path: https://www.city.tsukuba.lg.jp/
 fields:
   - name: lg_code
     title: 全国地方公共団体コード
     description: 非推奨。local_government_code を使う
-    extensions: { queria: { semantic: { role: dimension } } }
+    annotations: { queria: { semantic: { role: dimension } } }
   - name: area_code
     title: 地域を識別するコード
   - name: lg_name
@@ -32,4 +32,4 @@ fields:
     title: 該当性別・年齢層の人口
   - name: local_government_code
     title: 全国地方公共団体コード
-    extensions: { queria: { semantic: { role: entity, name: city } } }
+    annotations: { queria: { semantic: { role: entity, name: city } } }
