@@ -1,3 +1,4 @@
 schema: main
 name: raw_tsukuba_fire_hydrant
 description: つくば市オープンデータカタログの消防水利 CSV（n007_001、防火水槽と消火栓の2本）を縦につないだ生データ
+annotations: { queria: { published: false } }
