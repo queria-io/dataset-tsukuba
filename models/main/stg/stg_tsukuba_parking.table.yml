@@ -1,3 +1,4 @@
 schema: main
 name: stg_tsukuba_parking
 description: つくば市 駅前広場駐車場の元データをカラム英語化したもの
+annotations: { queria: { published: false } }
