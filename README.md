@@ -1,10 +1,30 @@
-## データ出典
+# つくば市オープンデータ
+
+つくば市が公開しているオープンデータを、SQL で集計・地図表示できるテーブルにしたデータセットです。地区別・性別・年齢階級別の人口と、指定緊急避難場所・公衆無線LAN・消防水利・投票所・介護保険事業所・子育て施設・市立学校・駐輪場・駅前広場駐車場・オープンデータの一覧を収録しています。
+
+施設の一覧は、英語の列名を持つ `main.mart_tsukuba_*` と、デジタル庁「自治体標準オープンデータセット」の定義書どおりの日本語の列名・並びで並べた `ods.*` の 2 つの形で持ちます。SQL で使うときは `main`、標準形式のファイルとしてダウンロードするときは `ods` を使ってください。
+
+## 使い方
+
+最新の時点の地区別人口:
+
+```sql
+SELECT area_name, sum(population) AS population
+FROM tsukuba.main.mart_tsukuba_population
+WHERE reference_date = (SELECT max(reference_date) FROM tsukuba.main.mart_tsukuba_population)
+GROUP BY area_name
+ORDER BY population DESC;
+```
+
+## 出典と利用条件
 
 [つくば市](https://www.city.tsukuba.lg.jp/)が公開しているオープンデータを整備して提供しています。
 
 人口統計と自治体標準オープンデータセットの各一覧は[つくば市オープンデータカタログ](https://t1070170.dupf.jp/ckan/)（CKAN）から、ビルドのたびに取り直します。人口統計は全時点を取ります。上流に新しい時点が増えれば次のビルドで自動的に入るので、モデルを足す作業は要りません。
 
 上流は CP932 と UTF-8 が混在しています。読み手が単一の encoding を指定できるよう、取得の時点で UTF-8 に揃えています。
+
+ライセンス: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 ## テーブル: mart_tsukuba_population
 
@@ -55,10 +75,6 @@ uv run python scripts/convert_shelter.py \
 ```
 
 出力時点のファイル名（`20241201` 部分）は、つくば市公式ページの更新時点に合わせて付けます。
-
-## ライセンス
-
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 ## テーブル: ods.evacuation_space
 
