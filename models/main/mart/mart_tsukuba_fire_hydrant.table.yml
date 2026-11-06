@@ -1,7 +1,11 @@
 schema: main
 name: mart_tsukuba_fire_hydrant
 title: つくば市 消防水利
-description: つくば市が公開する消防水利の一覧。防火水槽と消火栓を1つの表にまとめ、種別（facility_type）で区別する。1行が1水利で、緯度経度・管轄署所・公私別区分に加え、消火栓は管径（diameter）、防火水槽は容量（capacity）を持つ。住所は元データに無い。
+description: |-
+  つくば市の消防水利（防火水槽と消火栓）の一覧です。1 行が 1 水利で、種別・緯度経度・管轄署所を持ちます。
+
+  - 種別は facility_type で区別します
+  - 住所はありません
 keywords:
   - 消防水利
   - 消火栓

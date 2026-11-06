@@ -1,7 +1,11 @@
 schema: main
 name: mart_tsukuba_public_wireless_lan
 title: つくば市 公衆無線LANアクセスポイント
-description: つくば市が公開する公衆無線LANアクセスポイント一覧。1行が設置場所と SSID の組で、同じ施設に SSID が複数あれば施設は複数行に現れる。設置者・SSID・提供エリア・施設の URL を持つ。元データに緯度経度は無い。
+description: |-
+  つくば市の公衆無線LANアクセスポイント一覧です。1 行が設置場所と SSID の組です。
+
+  - 同じ施設に SSID が複数あると複数行に現れます
+  - 緯度経度はありません
 keywords:
   - 公衆無線LAN
   - Wi-Fi
