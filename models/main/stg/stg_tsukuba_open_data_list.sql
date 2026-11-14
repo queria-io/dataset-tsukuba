@@ -1,5 +1,3 @@
-{{ config(materialized='view') }}
-
 SELECT
     "都道府県コード又は市区町村コード"              AS local_government_code,
     NULLIF("NO", '')                                 AS dataset_id,

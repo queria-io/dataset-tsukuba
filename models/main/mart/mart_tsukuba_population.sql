@@ -1,5 +1,3 @@
-{{ config(materialized='view') }}
-
 SELECT
     *,
     lg_code AS local_government_code

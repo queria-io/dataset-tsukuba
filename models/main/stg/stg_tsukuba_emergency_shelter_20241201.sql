@@ -1,5 +1,3 @@
-{{ config(materialized='view') }}
-
 SELECT
     "全国地方公共団体コード"                        AS lg_code,
     "ID"                                              AS shelter_id,

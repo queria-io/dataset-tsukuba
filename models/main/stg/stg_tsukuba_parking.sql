@@ -1,5 +1,3 @@
-{{ config(materialized='view') }}
-
 SELECT
     '082201'                                          AS local_government_code,
     "No"                                              AS facility_id,
