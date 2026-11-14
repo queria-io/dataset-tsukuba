@@ -28,11 +28,11 @@ models:
       raw:
         +materialized: table
       stg:
-        +materialized: view
+        +materialized: table
       mart:
-        +materialized: view
+        +materialized: table
     ods:
-      +materialized: view
+      +materialized: table
 
 seeds:
   tsukuba:

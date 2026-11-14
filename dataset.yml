@@ -43,7 +43,7 @@ schemas:
     title: メイン
   - name: ods
     title: 自治体標準オープンデータセット
-    description: デジタル庁のデータセット定義書どおりの列名・並び・書き方で並べたビュー。CSV や Excel でダウンロードすれば、そのまま標準形式のファイルとして使える
+    description: デジタル庁のデータセット定義書どおりの列名・並び・書き方で並べたテーブル。CSV や Excel でダウンロードすれば、そのまま標準形式のファイルとして使える
 
 annotations:
   queria:

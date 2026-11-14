@@ -1,5 +1,3 @@
-{{ config(materialized='view') }}
-
 {% set counts = ['capacity_regular_bicycle', 'capacity_regular_moped', 'capacity_regular_motorcycle',
                  'capacity_temporary_bicycle', 'capacity_temporary_moped', 'capacity_temporary_motorcycle'] %}
 {% set fees = ['fee_regular_bicycle', 'fee_regular_moped', 'fee_regular_motorcycle',
