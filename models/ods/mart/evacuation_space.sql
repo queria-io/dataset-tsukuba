@@ -41,5 +41,5 @@ SELECT
     "画像",
     "画像_ライセンス",
     "備考"
-FROM {{ ref('raw_tsukuba_emergency_shelter_20241201') }}
+FROM {{ ref('stg_ods_emergency_shelter') }}
 ORDER BY "ID"
