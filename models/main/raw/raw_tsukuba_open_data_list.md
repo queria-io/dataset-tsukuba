@@ -1,0 +1,6 @@
+---
+$schema: https://queria.io/schemas/table/v1.json
+table: main.raw_tsukuba_open_data_list
+description: つくば市オープンデータカタログのオープンデータ一覧 CSV（m009_001）の生データ
+published: false
+---
