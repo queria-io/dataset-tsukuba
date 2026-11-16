@@ -1,0 +1,37 @@
+---
+$schema: https://queria.io/schemas/table/v1.json
+table: ods.fire_hydrant
+title: つくば市 消防水利施設一覧（標準形式）
+description: |-
+  つくば市の消防水利を、デジタル庁「自治体標準オープンデータセット」の消防水利施設一覧の列名・並びで並べたものです。CSV や Excel でダウンロードすると、そのまま標準形式のファイルとして使えます。
+
+  - SQL で使うときは、同じ行を英語の列名で持つ main のテーブルが扱いやすいです
+  - 所在地は市の CSV にないため空欄です
+keywords:
+  - 自治体標準オープンデータセット
+  - 消防水利
+  - 消火栓
+  - 防火水槽
+  - 防災
+  - つくば市
+sources:
+  - path: https://t1070170.dupf.jp/ckan/dataset/n007_001
+fields:
+  - name: 全国地方公共団体コード
+  - name: ID
+  - name: 地方公共団体名
+  - name: 種別
+  - name: 所在地_全国地方公共団体コード
+  - name: 町字ID
+  - name: 所在地_連結表記
+  - name: 所在地_都道府県
+  - name: 所在地_市区町村
+  - name: 所在地_町字
+  - name: 所在地_番地以下
+  - name: 建物名等(方書)
+  - name: 緯度
+  - name: 経度
+  - name: 口径
+  - name: 備考
+themes: [justice_safety_environment]
+---

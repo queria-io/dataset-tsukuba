@@ -1,0 +1,6 @@
+---
+$schema: https://queria.io/schemas/table/v1.json
+table: main.raw_tsukuba_bicycle_parking
+description: つくば市オープンデータカタログの自転車等駐車場一覧 XLSX（j008_001）の生データ。工区ごとに1行
+published: false
+---
