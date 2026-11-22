@@ -41,13 +41,13 @@ ORDER BY population DESC;
 
 ## テーブル: mart_tsukuba_emergency_shelter
 
-つくば市の指定緊急避難場所の一覧です。公式 CSV を自治体標準オープンデータセット（ODF）形式に整形し、住所正規化で緯度経度を補完しています。
+つくば市の指定緊急避難場所の一覧です。公式 CSV を自治体標準オープンデータセット（ODF）形式に整形し、Queria のジオコーダーで住所を照合し、町字 ID と緯度経度を補完しています。
 
 - local_government_code: 全国地方公共団体コード（同じ値の lg_code は非推奨）
 - shelter_id: 避難場所 ID
 - name / full_address: 名称 / 所在地（同じ値の address は非推奨）
 - prefecture / city / town / addr_detail: 正規化後の住所要素（同じ値の pref は非推奨）
-- latitude / longitude: 緯度・経度（Geolonia でジオコーディング）
+- latitude / longitude: 緯度・経度（地番または街区の代表点。番号を照合できない住所は町字の代表点）
 - flood / landslide / storm_surge / earthquake / tsunami / large_fire / inland_flooding / volcanic: 災害種別の対応フラグ
 - url: 出典ページ URL
 
