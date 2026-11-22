@@ -3,10 +3,9 @@
 つくば市が公開している 4 列の指定緊急避難場所 CSV を、
 デジタル庁「推奨データセット（指定緊急避難場所）」の ODF 形式に整形する。
 
-住所正規化とジオコーディングは normalize-japanese-addresses + Geolonia v2 API を利用。
-
-依存 (optional):
-    uv sync --extra convert
+住所の照合と緯度経度・町字 ID は Queria のジオコーダー (geocoder.queria.io/v1/forward) で取得する。
+所在地_番地以下は照合した番号 (住居表示の街区・住居番号、または地番) と、照合できなかった
+残りの番号をハイフンでつないだもの。
 
 使い方:
     uv run python scripts/convert_shelter.py \\
@@ -22,9 +21,10 @@ import tempfile
 import urllib.parse
 import urllib.request
 
-from normalize_japanese_addresses import normalize
-
 TSUKUBA_CODE = "082201"
+GEOCODER_URL = "https://geocoder.queria.io/v1/forward"
+KANJI_DIGITS = "〇一二三四五六七八九"
+NUMBER_KEYS = ["blk_num", "rsdt_num", "rsdt_num2", "prc_num1", "prc_num2", "prc_num3"]
 
 ODF_HEADERS = [
     "全国地方公共団体コード", "ID", "名称", "名称_カナ", "名称_英字",
@@ -107,16 +107,44 @@ def parse_tsukuba_csv(path):
     ]
 
 
+def kanji_number(n):
+    """1〜99 の整数を漢数字にする (つくば市の町字マスタは「二丁目」の表記)。"""
+    tens, ones = divmod(n, 10)
+    return (
+        ("" if tens < 2 else KANJI_DIGITS[tens])
+        + ("十" if tens else "")
+        + (KANJI_DIGITS[ones] if ones else "")
+    )
+
+
+def chome_name(chome):
+    m = re.fullmatch(r"(\d+)丁目", chome or "")
+    return f"{kanji_number(int(m.group(1)))}丁目" if m else (chome or "")
+
+
+def geocode(address):
+    query = urllib.parse.urlencode(
+        {"address": address, "include": "structured_address,ids"}
+    )
+    results = fetch_json(f"{GEOCODER_URL}?{query}")["results"]
+    if not results:
+        raise ValueError(f"住所を照合できません: {address}")
+    return results[0]
+
+
 def normalize_address(address):
-    r = normalize(address)
+    r = geocode(address)
+    sa = r["structured_address"]
+    numbers = [sa[k] for k in NUMBER_KEYS if sa[k]] + (r["unmatched_address"] or [])
     return {
-        "pref": r.get("pref", ""),
-        "city": r.get("city", ""),
-        "town": r.get("town", ""),
-        "addr": r.get("addr", ""),
-        "lat": str(r["lat"]) if r.get("lat") else "",
-        "lng": str(r["lng"]) if r.get("lng") else "",
-        "level": r.get("level", 0),
+        "pref": sa["pref"],
+        "city": sa["city"],
+        "town": f"{sa['oaza_cho'] or ''}{chome_name(sa['chome'])}{sa['koaza'] or ''}",
+        "addr": "-".join(numbers),
+        "machiaza_id": r["ids"]["machiaza_id"] or "",
+        "lat": str(r["lat"]) if r["lat"] is not None else "",
+        "lng": str(r["lng"]) if r["lng"] is not None else "",
+        "level": r["match_level"],
     }
 
 
@@ -132,7 +160,7 @@ def to_odf_row(facility, norm, page_url):
         "名称_カナ": "",
         "名称_英字": "",
         "所在地_全国地方公共団体コード": TSUKUBA_CODE,
-        "町字ID": "",
+        "町字ID": norm["machiaza_id"],
         "所在地_連結表記": full_addr,
         "所在地_都道府県": norm["pref"],
         "所在地_市区町村": norm["city"],
@@ -191,7 +219,7 @@ def convert(input_source, output_csv):
         print(f"  正規化: {f['name']} ({f['address']})")
         norm = normalize_address(f["address"])
         geo = "✓" if norm["lat"] else "✗"
-        print(f"    → L{norm['level']} {geo} town={norm['town']} addr={norm['addr']}")
+        print(f"    → {norm['level']} {geo} town={norm['town']} addr={norm['addr']}")
         return to_odf_row(f, norm, page_url)
 
     odf_rows = list(map(process, facilities))

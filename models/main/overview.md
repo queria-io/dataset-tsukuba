@@ -17,7 +17,7 @@ A dataset of statistical data published by Tsukuba city, transformed and organiz
 ### Designated Emergency Evacuation Sites
 
 - Source page: [つくば市 危機管理課](https://www.city.tsukuba.lg.jp/soshikikarasagasu/shichokoshitsukikikanrika/gyomuannai/1/2/1000608.html)
-- Data format: Municipal Standard Open Data Set ("Designated Emergency Evacuation Sites") — derived from the city's 4-column CSV and enriched with geocoded lat/lon via the normalize-japanese-addresses library
+- Data format: Municipal Standard Open Data Set ("Designated Emergency Evacuation Sites") — derived from the city's 4-column CSV and enriched with the town ID and lat/lon from the Queria geocoder (geocoder.queria.io)
 - Coverage: snapshot as of December 2024 (11 sites)
 
 ## Model Structure
