@@ -13,11 +13,11 @@ topics:
   - つくば市
 sources:
   - id: o009_001
-    path: https://t1070170.dupf.jp/ckan/dataset/o009_001
+    url: https://t1070170.dupf.jp/ckan/dataset/o009_001
 columns:
   - name: local_government_code
     title: 全国地方公共団体コード
-    entity: {type: foreign, name: city}
+    entity: city
   - name: facility_id
     title: ID
     description: 元データの No.。テーブル内で一意
@@ -35,7 +35,7 @@ columns:
     title: 市区町村
   - name: postal_code
     title: 郵便番号
-    entity: {type: foreign, name: postal_code}
+    entity: postal_code
   - name: phone_number
     title: 電話番号
   - name: fax_number

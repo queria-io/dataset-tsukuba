@@ -12,11 +12,11 @@ topics:
   - つくば市
 sources:
   - id: j008_001
-    path: https://t1070170.dupf.jp/ckan/dataset/j008_001
+    url: https://t1070170.dupf.jp/ckan/dataset/j008_001
 columns:
   - name: local_government_code
     title: 全国地方公共団体コード
-    entity: {type: foreign, name: city}
+    entity: city
   - name: facility_id
     title: ID
     description: 元データの No.。工区をまとめたあとはテーブル内で一意

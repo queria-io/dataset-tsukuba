@@ -11,11 +11,11 @@ topics:
   - つくば市
 sources:
   - id: k006_001
-    path: https://t1070170.dupf.jp/ckan/dataset/k006_001
+    url: https://t1070170.dupf.jp/ckan/dataset/k006_001
 columns:
   - name: local_government_code
     title: 全国地方公共団体コード
-    entity: {type: foreign, name: city}
+    entity: city
   - name: facility_id
     title: ID
     description: 市が付けた番号。テーブル内で一意

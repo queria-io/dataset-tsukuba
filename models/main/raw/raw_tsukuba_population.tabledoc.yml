@@ -93,4 +93,4 @@ columns:
     description: 世帯数
   - name: 備考
     description: 備考
-listed: false
+hidden: true
