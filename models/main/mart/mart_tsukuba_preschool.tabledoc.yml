@@ -12,17 +12,17 @@ topics:
   - つくば市
 sources:
   - id: o019_001
-    path: https://t1070170.dupf.jp/ckan/dataset/o019_001
+    url: https://t1070170.dupf.jp/ckan/dataset/o019_001
   - id: l012_001
-    path: https://t1070170.dupf.jp/ckan/dataset/l012_001
+    url: https://t1070170.dupf.jp/ckan/dataset/l012_001
   - id: sirituyoutien
-    path: https://t1070170.dupf.jp/ckan/dataset/sirituyoutien
+    url: https://t1070170.dupf.jp/ckan/dataset/sirituyoutien
   - id: o014_001
-    path: https://t1070170.dupf.jp/ckan/dataset/o014_001
+    url: https://t1070170.dupf.jp/ckan/dataset/o014_001
 columns:
   - name: local_government_code
     title: 全国地方公共団体コード
-    entity: {type: foreign, name: city}
+    entity: city
   - name: source_dataset
     title: 元の一覧
     description: CKAN のデータセット ID（o019_001=認可保育所等一覧、l012_001=私立幼稚園・認定こども園一覧、sirituyoutien=市立幼稚園一覧、o014_001=地域子育て支援拠点）
@@ -61,7 +61,7 @@ columns:
     title: 団体名
   - name: legal_entity_number
     title: 法人番号
-    entity: {type: foreign, name: corporate_number}
+    entity: corporate_number
   - name: authorized_date
     title: 認可等年月日
   - name: age_range

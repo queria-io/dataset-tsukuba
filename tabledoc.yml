@@ -26,12 +26,12 @@ licenses:
 sources:
   - id: city
     title: つくば市オープンデータ
-    path: https://www.city.tsukuba.lg.jp/
+    url: https://www.city.tsukuba.lg.jp/
 
 contributors:
   - id: city
     title: つくば市
-    path: https://www.city.tsukuba.lg.jp/
+    url: https://www.city.tsukuba.lg.jp/
     roles: [rightsHolder]
 
 temporal_coverage: {start: "2003-04-01", end: null}

@@ -29,4 +29,4 @@ columns:
     title: 該当性別・年齢層の人口
   - name: local_government_code
     title: 全国地方公共団体コード
-    entity: {type: foreign, name: city}
+    entity: city

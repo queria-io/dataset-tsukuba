@@ -10,4 +10,4 @@ columns:
     description: 所在地
   - name: note
     description: 備考
-listed: false
+hidden: true

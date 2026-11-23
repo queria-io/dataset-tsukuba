@@ -10,9 +10,9 @@ topics:
   - つくば市
 sources:
   - id: 2-1000608
-    path: https://www.city.tsukuba.lg.jp/soshikikarasagasu/shichokoshitsukikikanrika/gyomuannai/1/2/1000608.html
+    url: https://www.city.tsukuba.lg.jp/soshikikarasagasu/shichokoshitsukikikanrika/gyomuannai/1/2/1000608.html
   - id: 202412hinannbasyo
-    path: https://www.city.tsukuba.lg.jp/material/files/group/4/202412hinannbasyo.csv
+    url: https://www.city.tsukuba.lg.jp/material/files/group/4/202412hinannbasyo.csv
 columns:
   - name: lg_code
     title: 全国地方公共団体コード
@@ -60,7 +60,7 @@ columns:
     title: 連絡先備考
   - name: postal_code
     title: 郵便番号
-    entity: {type: foreign, name: postal_code}
+    entity: postal_code
   - name: lg_name
     title: 地方公共団体名
   - name: flood
@@ -95,7 +95,7 @@ columns:
     title: 備考
   - name: local_government_code
     title: 全国地方公共団体コード
-    entity: {type: foreign, name: city}
+    entity: city
   - name: full_address
     title: 所在地（連結表記）
   - name: prefecture

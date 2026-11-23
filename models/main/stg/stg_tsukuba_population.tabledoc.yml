@@ -17,4 +17,4 @@ columns:
     description: 年齢層（0-4, 5-9, ..., 85+）
   - name: population
     description: 該当性別・年齢層の人口
-listed: false
+hidden: true

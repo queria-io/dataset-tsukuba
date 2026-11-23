@@ -7,11 +7,11 @@ topics:
   - つくば市
 sources:
   - id: m009_001
-    path: https://t1070170.dupf.jp/ckan/dataset/m009_001
+    url: https://t1070170.dupf.jp/ckan/dataset/m009_001
 columns:
   - name: local_government_code
     title: 全国地方公共団体コード
-    entity: {type: foreign, name: city}
+    entity: city
   - name: dataset_id
     title: 'NO'
     description: 元データでは空欄
