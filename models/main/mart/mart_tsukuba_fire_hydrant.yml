@@ -2,7 +2,6 @@ version: 2
 
 models:
   - name: mart_tsukuba_fire_hydrant
-    description: つくば市が公開する消防水利（防火水槽・消火栓）の一覧。1行が1水利。
     access: public
     config:
       contract:

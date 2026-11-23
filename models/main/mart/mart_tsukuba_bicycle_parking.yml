@@ -2,7 +2,6 @@ version: 2
 
 models:
   - name: mart_tsukuba_bicycle_parking
-    description: つくば市が公開する自転車等駐車場（市営の駐輪場）の一覧。1行が1駐輪場で、工区に分かれたものは1行にまとめ、工区を sections に「;」でつないでいる。最寄りの TX 駅・所在地・利用時間・駐車できる車両・定期と一時の料金と台数を持つ。元データに緯度経度は無い。
     access: public
     config:
       contract:

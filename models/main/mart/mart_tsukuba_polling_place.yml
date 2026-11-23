@@ -2,7 +2,6 @@ version: 2
 
 models:
   - name: mart_tsukuba_polling_place
-    description: つくば市が公開する投票所一覧。1行が1投票区の投票所。
     access: public
     config:
       contract:

@@ -1,0 +1,57 @@
+$schema: https://tabledoc.queria.io/schemas/table/v1.json
+title: つくば市 公営駐車場一覧（標準形式）
+description: |-
+  つくば市の駅前広場駐車場を、デジタル庁「自治体標準オープンデータセット」の公営駐車場一覧の列名・並びで並べたものです。CSV や Excel でダウンロードすると、そのまま標準形式のファイルとして使えます。
+
+  - SQL で使うときは、同じ行を英語の列名で持つ main のテーブルが扱いやすいです
+  - 最大駐車台数は車種ごとに分かれていないため空欄です
+topics:
+  - 自治体標準オープンデータセット
+  - 駐車場
+  - つくばエクスプレス
+  - つくば市
+sources: [j009_001]
+columns:
+  - name: 全国地方公共団体コード
+  - name: ID
+  - name: 地方公共団体名
+  - name: 名称
+  - name: 名称_カナ
+  - name: 名称_英字
+  - name: 施設通称
+  - name: 概要
+  - name: 説明
+  - name: 状態
+  - name: 所在地_全国地方公共団体コード
+  - name: 町字ID
+  - name: 連結表記
+  - name: 都道府県
+  - name: 市区町村
+  - name: 町字
+  - name: 番地以下
+  - name: 建物名等_方書
+  - name: 緯度
+  - name: 経度
+  - name: 座標参照系
+  - name: 座標参照系コード
+  - name: 連絡先名称
+  - name: 連絡先電話番号
+  - name: 連絡先内線番号
+  - name: 連絡先メールアドレス
+  - name: 連絡先FormURL
+  - name: 連絡先備考
+  - name: 郵便番号
+  - name: サービス曜日
+  - name: 開始時刻
+  - name: 終了時刻
+  - name: 日時備考
+  - name: 料金種別
+  - name: 料金
+  - name: 料金備考
+  - name: 決済種別
+  - name: 車種
+  - name: 最大駐車台数_普通車
+  - name: 最大駐車台数_バス
+  - name: 最大駐車台数_バイク
+  - name: 付帯設備
+  - name: 備考
