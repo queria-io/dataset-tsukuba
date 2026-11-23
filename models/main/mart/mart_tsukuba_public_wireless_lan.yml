@@ -2,7 +2,6 @@ version: 2
 
 models:
   - name: mart_tsukuba_public_wireless_lan
-    description: つくば市が公開する公衆無線LANアクセスポイント一覧。1行が設置場所と SSID の組。
     access: public
     config:
       contract:

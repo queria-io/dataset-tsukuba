@@ -1,6 +1,0 @@
----
-$schema: https://queria.io/schemas/table/v1.json
-table: main.raw_tsukuba_educational_institution
-description: つくば市オープンデータカタログの市立小学校・中学校・義務教育学校・幼稚園一覧 XLSX（l010_001）の4シートを縦につないだ生データ
-published: false
----

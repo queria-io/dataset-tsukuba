@@ -1,0 +1,46 @@
+$schema: https://tabledoc.queria.io/schemas/dataset/v1.json
+name: tsukuba
+title: つくば市オープンデータ
+description: |-
+  つくば市が公開しているオープンデータです。地区別・性別・年齢階級別の人口と、指定緊急避難場所・消防水利・投票所・介護保険事業所・子育て施設・市立学校・駐輪場などの一覧を収録しています。
+
+  出典：つくば市オープンデータカタログ（つくば市）。Queria が加工したものです。
+topics:
+  - オープンデータ
+  - つくば市
+  - 人口
+  - 避難場所
+  - 公衆無線LAN
+  - 消防水利
+  - 投票所
+  - 介護
+  - 子育て
+  - 学校
+  - 駐輪場
+homepage: https://github.com/queria-io/dataset-tsukuba
+language: ja
+licenses:
+  - CC-BY-4.0
+
+sources:
+  - id: city
+    title: つくば市オープンデータ
+    path: https://www.city.tsukuba.lg.jp/
+
+contributors:
+  - id: city
+    title: つくば市
+    path: https://www.city.tsukuba.lg.jp/
+    roles: [rightsHolder]
+
+temporal_coverage: {start: "2003-04-01", end: null}
+spatial_coverage: [JP]
+update_frequency: irregular
+schemas:
+  - name: main
+    title: メイン
+  - name: ods
+    title: 自治体標準オープンデータセット
+    description: デジタル庁のデータセット定義書どおりの列名・並び・書き方で並べたテーブル。CSV や Excel でダウンロードすれば、そのまま標準形式のファイルとして使える
+
+synonyms: [つくば市, 地区別人口, 避難場所, Wi-Fi, 消火栓, 防火水槽, 投票所]

@@ -1,6 +1,0 @@
----
-$schema: https://queria.io/schemas/table/v1.json
-table: main.raw_tsukuba_emergency_shelter_20241201
-description: つくば市指定緊急避難場所（2024年12月時点、11件、ODF形式39列に整備済み）の生データ
-published: false
----

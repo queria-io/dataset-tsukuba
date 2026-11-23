@@ -2,7 +2,6 @@ version: 2
 
 models:
   - name: mart_tsukuba_educational_institution
-    description: つくば市が公開する市立小学校・中学校・義務教育学校・幼稚園の一覧。1行が1校で、学校種・所在地・電話番号・通学区域を持つ。元データに緯度経度と学校コードは無い。
     access: public
     config:
       contract:
