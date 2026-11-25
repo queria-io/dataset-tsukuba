@@ -10,7 +10,6 @@ columns:
   - name: lg_code
     title: 全国地方公共団体コード
     description: 非推奨。local_government_code を使う
-    dimension: categorical
   - name: area_code
     title: 地域を識別するコード
   - name: lg_name
