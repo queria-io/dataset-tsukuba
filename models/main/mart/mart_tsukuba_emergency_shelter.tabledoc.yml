@@ -17,7 +17,6 @@ columns:
   - name: lg_code
     title: 全国地方公共団体コード
     description: 非推奨。local_government_code を使う
-    dimension: categorical
   - name: shelter_id
     title: 避難場所ID
   - name: name
@@ -29,11 +28,9 @@ columns:
   - name: address
     title: 所在地（連結表記）
     description: 非推奨。full_address を使う
-    dimension: categorical
   - name: pref
     title: 都道府県
     description: 非推奨。prefecture を使う
-    dimension: categorical
   - name: city
     title: 市区町村
   - name: town

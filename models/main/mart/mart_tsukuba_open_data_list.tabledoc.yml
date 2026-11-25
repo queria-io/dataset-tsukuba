@@ -27,6 +27,7 @@ columns:
     title: データ形式
   - name: category
     title: 分類
+    dimension: categorical
   - name: update_frequency
     title: 更新頻度
   - name: url

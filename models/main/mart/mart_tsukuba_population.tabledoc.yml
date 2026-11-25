@@ -10,7 +10,6 @@ columns:
   - name: lg_code
     title: 全国地方公共団体コード
     description: 非推奨。local_government_code を使う
-    dimension: categorical
   - name: area_code
     title: 地域を識別するコード
   - name: lg_name
@@ -22,9 +21,11 @@ columns:
   - name: sex
     title: 性別
     description: male/female
+    dimension: categorical
   - name: age_group
     title: 年齢層
     description: 0-4, 5-9, ..., 85+
+    dimension: categorical
   - name: population
     title: 該当性別・年齢層の人口
   - name: local_government_code

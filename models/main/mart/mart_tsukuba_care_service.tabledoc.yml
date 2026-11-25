@@ -25,8 +25,10 @@ columns:
     title: 事業所名
   - name: service_code
     title: サービスコード
+    dimension: categorical
   - name: service_type
     title: サービス種類
+    dimension: categorical
   - name: full_address
     title: 所在地
   - name: prefecture
@@ -59,3 +61,4 @@ columns:
     title: 指定年月日
   - name: deemed_category
     title: みなし区分
+    dimension: categorical

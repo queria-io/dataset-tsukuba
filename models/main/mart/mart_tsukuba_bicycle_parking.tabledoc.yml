@@ -37,6 +37,7 @@ columns:
   - name: parking_category
     title: 駐車区分
     description: 一時 / 定期 / 一時・定期
+    dimension: categorical
   - name: hours_weekday
     title: 利用時間（平日）
   - name: hours_holiday
@@ -77,3 +78,4 @@ columns:
   - name: fee_type
     title: 料金種別
     description: 料金のどれかに金額があれば 有料、金額が無く 無料 とだけあれば 無料
+    dimension: categorical
