@@ -33,9 +33,11 @@ columns:
   - name: ownership
     title: 区分
     description: 公立 / 民間
+    dimension: categorical
   - name: facility_type
     title: 種別
     description: 元の一覧の書き方（保育所・小規模保育事業所・幼稚園・認定こども園・地域子育て支援拠点）
+    dimension: categorical
   - name: full_address
     title: 所在地
     description: 元データは「つくば市」から書かれているので、「茨城県」を前に付けている
